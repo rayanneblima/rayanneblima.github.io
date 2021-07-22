@@ -21,7 +21,6 @@ const App = () => {
       <>
         <GlobalStyles />
         <Header toggleTheme={toggleTheme} />
-        <div></div>
       </>
     </ThemeProvider>
   );

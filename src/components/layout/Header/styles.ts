@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.header`
+export const HeaderContainer = styled.header`
   align-items: center;
   display: flex;
   height: 15vh;
@@ -11,4 +11,15 @@ export const Container = styled.header`
   width: 100%;
 
   border: 2px solid red;
+`;
+
+export const RightContainer = styled.div`
+  align-items: center;
+  display: flex;
+  gap: 8rem;
+  justify-content: space-between;
+
+  @media (max-width: 575px) {
+    flex-direction: row-reverse;
+  }
 `;

@@ -77,6 +77,10 @@ export default createGlobalStyle`
 		text-transform: capitalize;
   }
 
+  li {
+    list-style: none;
+  }
+
   /* Common base styles for the site */
 	figure, img, svg, video {
 		max-width: 100%;
