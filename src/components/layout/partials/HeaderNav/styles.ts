@@ -78,6 +78,7 @@ export const NavContainer = styled.nav<defaultProps>`
     ul {
       background: var(--secondary-background);
 
+      display: ${(props) => props.open ? 'flex' : 'none'};
       flex-direction: column;
       flex-wrap: wrap;
       gap: 4rem;
@@ -87,7 +88,6 @@ export const NavContainer = styled.nav<defaultProps>`
       position: absolute;
       right: -2px;
       top: 0;
-      visibility: ${(props) => props.open ? '' : 'hidden'};
       width: ${(props) => props.open ? '50vh' : '0'};
     }
   }
