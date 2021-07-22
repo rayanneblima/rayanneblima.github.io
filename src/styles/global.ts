@@ -52,8 +52,20 @@ export default createGlobalStyle`
     height: 100vh;
     margin: auto;
     overflow: initial;
-    width: 100vw;
+    /* width: 100vw; cause horizontal vertical scroll */
   }
+
+  /* sticky header */
+  #root {
+    position: relative;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+  }
+
+  /* sticky header */
 
   body, input, textarea, button {
     font: 1.6rem 'Roboto', sans-serif;

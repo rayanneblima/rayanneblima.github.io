@@ -4,8 +4,10 @@ import Switch from 'react-switch';
 import { ThemeContext } from 'styled-components';
 
 import Logo from '../partials/Logo';
+import DarkThemeIcon from '../partials/DarkThemeIcon';
+import LightThemeIcon from '../partials/LightThemeIcon';
 
-import { } from './styles';
+import { Container } from './styles';
 
 interface defaultProps {
   toggleTheme: () => void;
@@ -15,7 +17,7 @@ const Header: React.FC<defaultProps> = ({ toggleTheme }) => {
   const { title, colors } = useContext(ThemeContext);
 
   return (
-    <header>
+    <Container>
       <Logo />
 
       <Switch
@@ -30,10 +32,10 @@ const Header: React.FC<defaultProps> = ({ toggleTheme }) => {
         onColor={colors.secondaryOpacity}
         uncheckedIcon={false}
         checkedIcon={false}
-        // uncheckedHandleIcon={<LightThemeIcon />}
-        // checkedHandleIcon={<DarkThemeIcon />}
+        uncheckedHandleIcon={<LightThemeIcon />}
+        checkedHandleIcon={<DarkThemeIcon />}
       />
-    </header>
+    </Container>
   );
 }
 

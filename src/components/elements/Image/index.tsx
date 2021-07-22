@@ -6,8 +6,8 @@ type defaultProps = {
   alt: string;
   className: string;
   srcName: string;
-  height: number;
-  width: number;
+  height?: number | undefined;
+  width?: number | undefined;
 }
 
 const Image: React.FC<defaultProps> = ({
@@ -26,9 +26,9 @@ const Image: React.FC<defaultProps> = ({
       className={className}
       height={height}
       width={width}
+      {...props}
     >
       <img
-        {...props}
         ref={image}
         alt={alt}
         src={require(`../../../assets/${srcName}`).default}

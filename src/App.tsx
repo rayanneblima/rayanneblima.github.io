@@ -18,10 +18,11 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
+      <>
         <GlobalStyles />
         <Header toggleTheme={toggleTheme} />
-      </div>
+        <div></div>
+      </>
     </ThemeProvider>
   );
 };
