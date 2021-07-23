@@ -7,6 +7,7 @@ import light from './styles/theme/light';
 import usePersistedState from './hooks/usePersistedState';
 
 import Home from './components/sections/Home';
+import AboutMe from './components/sections/AboutMe';
 
 import GlobalStyles from './styles/global';
 
@@ -22,6 +23,7 @@ const App = () => {
       <>
         <GlobalStyles />
         <Home toggleTheme={toggleTheme} />
+        <AboutMe />
       </>
     </ThemeProvider>
   );

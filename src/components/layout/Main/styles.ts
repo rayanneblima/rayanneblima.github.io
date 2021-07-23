@@ -110,7 +110,7 @@ export const Picture = styled.div`
   }
 
   @media (max-width: 375px) {
-    width: 70%;
+    width: 60%;
   }
 `;
 
@@ -132,5 +132,11 @@ export const BottomContent = styled.div`
 
   @media (max-width: 590px) {
     margin-top: 10px;
+  }
+
+  @media (max-width: 375px) {
+    .arrows-down {
+      width: 60%;
+    }
   }
 `;

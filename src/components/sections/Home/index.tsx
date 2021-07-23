@@ -15,7 +15,7 @@ const Home: React.FC<defaultProps> = ({ toggleTheme }) => {
   const { title } = useContext(ThemeContext);
 
   return (
-    <HomeContainer themeTitle={title}>
+    <HomeContainer themeTitle={title} id="home">
       <Header toggleTheme={toggleTheme} />
       <Main themeTitle={title} />
     </HomeContainer>
