@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header`
   padding: 0 20px;
   width: 100%;
 
-  border: 2px solid red;
+  background: var(--primary-background);
 `;
 
 export const RightContainer = styled.div`

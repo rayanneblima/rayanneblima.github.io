@@ -89,6 +89,7 @@ export const NavContainer = styled.nav<defaultProps>`
       right: -2px;
       top: 0;
       width: ${(props) => props.open ? '50vh' : '0'};
+
     }
   }
 `;

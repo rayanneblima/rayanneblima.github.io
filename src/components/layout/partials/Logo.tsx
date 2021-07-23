@@ -12,7 +12,7 @@ const Logo = ({ ...props }) => {
           <Image
             srcName='logo.svg'
             alt="Rayanne B. Lima - Logomarca"
-            className="header-logo"
+            className="header-logo rotate"
             width={100}
           />
         </Link>

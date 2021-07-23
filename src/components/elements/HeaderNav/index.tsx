@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 const NavHeader: React.FC = () => {
   const nav = useRef(null);
-  const [openMenu, setOpenMenu] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
 
   function handleToggleOpenMenu () {
     setOpenMenu(!openMenu);
@@ -23,9 +23,8 @@ const NavHeader: React.FC = () => {
         className='header-nav'
         open={openMenu}
       >
-          {/* toggle burguer menu */}
-          <MenuIcon onClick={handleToggleOpenMenu} className="btn-menu open" />
-          <CloseIcon onClick={handleToggleOpenMenu} className="btn-menu close" />
+        <MenuIcon onClick={handleToggleOpenMenu} className="btn-menu open" />
+        <CloseIcon onClick={handleToggleOpenMenu} className="btn-menu close" />
         <ul>
           <li>
             <NavHashLink

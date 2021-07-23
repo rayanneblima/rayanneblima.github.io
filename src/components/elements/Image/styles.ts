@@ -22,7 +22,7 @@ export const Container = styled.div<imageProps>`
     transition: all 0.2s;
   }
 
-  img:hover {
+  .rotate:hover {
     transform: rotate(-10deg);
   }
 `;

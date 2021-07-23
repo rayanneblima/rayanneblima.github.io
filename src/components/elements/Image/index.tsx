@@ -23,12 +23,12 @@ const Image: React.FC<defaultProps> = ({
 
   return (
     <Container
-      className={className}
       height={height}
       width={width}
       {...props}
     >
       <img
+        className={className}
         ref={image}
         alt={alt}
         src={require(`../../../assets/${srcName}`).default}

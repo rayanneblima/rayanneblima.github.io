@@ -8,7 +8,7 @@ import DarkThemeIcon from '../partials/DarkThemeIcon';
 import LightThemeIcon from '../partials/LightThemeIcon';
 
 import { HeaderContainer, RightContainer } from './styles';
-import HeaderNav from '../partials/HeaderNav';
+import HeaderNav from '../../elements/HeaderNav';
 
 interface defaultProps {
   toggleTheme: () => void;
