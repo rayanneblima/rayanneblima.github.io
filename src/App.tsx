@@ -9,7 +9,8 @@ import usePersistedState from './hooks/usePersistedState';
 import Header from './components/layout/Header';
 import Home from './components/sections/Home';
 import AboutMe from './components/sections/AboutMe';
-import Footer from './components/sections/Timeline';
+import Timeline from './components/sections/Timeline';
+import Techs from './components/sections/Techs';
 
 import GlobalStyles from './styles/global';
 
@@ -27,7 +28,8 @@ const App = () => {
         <Header toggleTheme={toggleTheme} />
         <Home />
         <AboutMe />
-        <Footer />
+        <Timeline />
+        <Techs />
       </>
     </ThemeProvider>
   );
