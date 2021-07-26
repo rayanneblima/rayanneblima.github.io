@@ -11,6 +11,7 @@ import Home from './components/sections/Home';
 import AboutMe from './components/sections/AboutMe';
 import Timeline from './components/sections/Timeline';
 import Techs from './components/sections/Techs';
+import Projects from './components/sections/Projects';
 
 import GlobalStyles from './styles/global';
 
@@ -30,6 +31,7 @@ const App = () => {
         <AboutMe />
         <Timeline />
         <Techs />
+        <Projects />
       </>
     </ThemeProvider>
   );
