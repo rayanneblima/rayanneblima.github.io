@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 
@@ -6,7 +6,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 
 import { NavContainer } from './styles';
-import { useState } from 'react';
 
 const NavHeader: React.FC = () => {
   const nav = useRef(null);

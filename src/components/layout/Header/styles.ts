@@ -9,6 +9,7 @@ export const HeaderContainer = styled.header`
   max-width: 1200px;
   padding: 0 20px;
   width: 100%;
+  z-index: 1;
 
   background: var(--primary-background);
 `;

@@ -6,8 +6,10 @@ import light from './styles/theme/light';
 
 import usePersistedState from './hooks/usePersistedState';
 
+import Header from './components/layout/Header';
 import Home from './components/sections/Home';
 import AboutMe from './components/sections/AboutMe';
+import Footer from './components/sections/Timeline';
 
 import GlobalStyles from './styles/global';
 
@@ -22,8 +24,10 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <Home toggleTheme={toggleTheme} />
+        <Header toggleTheme={toggleTheme} />
+        <Home />
         <AboutMe />
+        <Footer />
       </>
     </ThemeProvider>
   );

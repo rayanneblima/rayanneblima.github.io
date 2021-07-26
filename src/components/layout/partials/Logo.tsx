@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
+
 import Image from '../../elements/Image';
 
 const Logo = ({ ...props }) => {
@@ -8,14 +10,14 @@ const Logo = ({ ...props }) => {
       <h1
         {...props}
       >
-        <Link to="/">
+        <NavHashLink to="#home">
           <Image
             srcName='logo.svg'
             alt="Rayanne B. Lima - Logomarca"
             className="header-logo rotate"
             width={100}
           />
-        </Link>
+        </NavHashLink>
       </h1>
     </BrowserRouter>
   );
