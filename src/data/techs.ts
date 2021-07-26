@@ -35,4 +35,16 @@ export const techs = [
     level: "1",
     description: "Back-End",
   },
+  {
+    title: "Spring",
+    logo: "spring",
+    level: "1",
+    description: "Back-End",
+  },
+  {
+    title: "Python",
+    logo: "python",
+    level: "1",
+    description: "Back-End",
+  },
 ];

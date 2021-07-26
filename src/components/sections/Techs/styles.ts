@@ -44,15 +44,11 @@ export const ContentContainer = styled.div`
   justify-items: center;
   margin-inline: auto;
   min-height: 60vh;
-  padding: 0 20px;
+  padding: 25px 20px;
   row-gap: 25px;
   width: 100%;
 
   background: var(--secondary-background);
-
-  @media (max-width: 640px) {
-    padding: 25px 20px;
-  }
 
   @media (max-width: 375px) {
     padding: 25px 0;
