@@ -12,6 +12,7 @@ import AboutMe from './components/sections/AboutMe';
 import Timeline from './components/sections/Timeline';
 import Techs from './components/sections/Techs';
 import Projects from './components/sections/Projects';
+import Contact from './components/sections/Contact';
 
 import GlobalStyles from './styles/global';
 
@@ -32,6 +33,7 @@ const App = () => {
         <Timeline />
         <Techs />
         <Projects />
+        <Contact />
       </>
     </ThemeProvider>
   );
