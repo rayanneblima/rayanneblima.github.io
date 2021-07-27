@@ -14,27 +14,28 @@ const Projects: React.FC = () => {
   const [page, setPage] = useState(1);
   const [repoList, setRepoList] = useState<RepoDataInterface[]>([]);
 
-  function getRepos() {
-    fetch(`https://api.github.com/users/${username}/repos?page=${page}&per_page=6`,
-      {
-      method: "GET",
-      headers: {
-      Accept: "application/vnd.github.mercy-preview+json"
-      }
-    })
-    .then(async response => {
-      if (!response.ok) {
-        throw new Error(response.statusText)
-      }
-      const data = await response.json();
-      if (!data.length) {
-        setShowBtn(false);
-      }
-      return setRepoList(repoList.concat(data));
-    });
-  }
 
   useEffect(() => {
+    const getRepos = () => {
+      fetch(`https://api.github.com/users/${username}/repos?page=${page}&per_page=6`,
+        {
+        method: "GET",
+        headers: {
+        Accept: "application/vnd.github.mercy-preview+json"
+        }
+      })
+      .then(async response => {
+        if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+        const data = await response.json();
+        if (!data.length) {
+          setShowBtn(false);
+        }
+        return setRepoList((repoList) => repoList.concat(data));
+      });
+    }
+
     getRepos();
   }, [page]);
 
