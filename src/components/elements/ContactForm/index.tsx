@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import emailjs from 'emailjs-com';
 
+import RefreshOutlined from '@material-ui/icons/RefreshOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
 import InfoIcon from '@material-ui/icons/Info';
@@ -25,11 +26,13 @@ type FormData = {
 
 const ContactForm: React.FC = () => {
   const { register, handleSubmit } = useForm<FormData>();
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const onSubmit = (data: FormData) => {
     const serviceID = 'service_jekgvx1';
     const templateID = 'template_go35emf';
     const userID = 'user_wlzu1KQ4lelekgwxR8bEW';
+
 
     emailjs.send(serviceID, templateID, {
       name: data.nome,
@@ -38,6 +41,9 @@ const ContactForm: React.FC = () => {
       email: data.email,
     }, userID)
       .then((result: { status: number }) => {
+
+        setDisabled(true);
+
         if (result.status === 200) {
           toast.success('Mensagem enviada com sucesso.', {
             position: "top-right",
@@ -59,6 +65,8 @@ const ContactForm: React.FC = () => {
           draggable: true,
           progress: undefined,
         });
+      }).finally(() => {
+        setDisabled(false);
       });
   };
 
@@ -99,8 +107,11 @@ const ContactForm: React.FC = () => {
         <ChatIcon />
       </Input>
 
-      <Button type="submit" className="send-message" txtColor="secondary-text">
-        Enviar mensagem
+      <Button type="submit" disabled={disabled} className="send-message" txtColor="secondary-text">
+        { !disabled
+          ? 'Enviar mensagem'
+          : <RefreshOutlined className="refresh-icon" />
+        }
       </Button>
     </ContactFormContainer>
   );

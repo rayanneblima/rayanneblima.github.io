@@ -10,6 +10,7 @@ export const NavContainer = styled.nav<defaultProps>`
   margin-inline: auto;
 
   .btn-menu {
+    cursor: pointer;
     display: none;
     font-size: 2em;
     position: relative;
@@ -17,9 +18,9 @@ export const NavContainer = styled.nav<defaultProps>`
     z-index: 10;
   }
 
-  .btn-menu.close {
+  /* .btn-menu.close {
     right: 50vw;
-  }
+  } */
 
   ul {
     align-items: center;
@@ -28,6 +29,10 @@ export const NavContainer = styled.nav<defaultProps>`
     gap: 8rem;
 
     transition: width 0.2s ease-in-out;
+
+    @media (max-width: 1024px) {
+      gap: 4rem;
+    }
 
     a {
       font-family: 'Barlow Condensed';
@@ -38,11 +43,11 @@ export const NavContainer = styled.nav<defaultProps>`
     }
 
     a.active-anchor {
-      color: var(--secondary);
+      color: var(--primary);
     }
 
     a:before {
-      background: var(--secondary);
+      background: var(--primary);
       bottom: 0;
       content: "";
       height: 0;
@@ -88,8 +93,13 @@ export const NavContainer = styled.nav<defaultProps>`
       position: absolute;
       right: -2px;
       top: 0;
-      width: ${(props) => props.open ? '50vh' : '0'};
+      width: ${(props) => props.open ? '50vw' : '0'};
+    }
+  }
 
+  @media (max-width: 425px) {
+    ul {
+      width: ${(props) => props.open ? '100vw' : '0'};
     }
   }
 `;

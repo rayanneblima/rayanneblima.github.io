@@ -23,7 +23,8 @@ const Button: React.FC<ButtonProps> = ({
   isExternalLink = false,
   linkTo,
   children,
-  clickHandler
+  clickHandler,
+  ...rest
 }) => {
   return (
     <>
@@ -55,6 +56,7 @@ const Button: React.FC<ButtonProps> = ({
             txtColor={txtColor}
             isOutlined={isOutlined}
             onClick={clickHandler}
+            {...rest}
           >
             {children}
           </BtnContainer>

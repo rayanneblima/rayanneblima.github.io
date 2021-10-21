@@ -16,7 +16,10 @@ const Contact: React.FC = () => {
   return (
     <ContactContainer themeTitle={title} id="contato">
       <FormContainer>
-        <h1>Vamos conversar sobre um novo projeto?</h1>
+        <span>
+          <h1>Vamos conversar sobre um novo projeto?</h1>
+          <p>Informe os detalhes e entrarei em contato assim que possível.</p>
+        </span>
         <ContactForm />
       </FormContainer>
       <SocialIcons>

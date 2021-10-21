@@ -3,11 +3,10 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.header`
   align-items: center;
   display: flex;
-  height: 15vh;
+  min-height: 10vh;
   justify-content: space-between;
   margin-inline: auto;
-  max-width: 1200px;
-  padding: 0 20px;
+  padding: 20px;
   width: 100%;
   z-index: 1;
 

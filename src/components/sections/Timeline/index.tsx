@@ -7,7 +7,7 @@ const Timeline: React.FC = () => {
   return (
     <TimelineContainer id="timeline">
       <Content>
-        <h1>Timeline</h1>
+        <h1>Experiências</h1>
         <ContentContainer>
           <MiddleContainer>
             <TimelineNav />

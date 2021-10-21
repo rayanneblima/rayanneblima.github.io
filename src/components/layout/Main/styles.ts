@@ -4,7 +4,7 @@ export const MainContainer = styled.main`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 85vh;
+  height: 90vh;
   justify-content: space-between;
   margin-inline: auto;
   max-width: 1200px;
@@ -16,7 +16,7 @@ export const TopContent = styled.div`
   align-items: center;
   display: flex;
   gap: 8rem;
-  height: 85vh;
+  height: 90vh;
   justify-content: space-between;
   width: 100%;
 

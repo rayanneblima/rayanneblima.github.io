@@ -28,12 +28,12 @@ const Header: React.FC<defaultProps> = ({ toggleTheme }) => {
           onChange={toggleTheme}
           checked={title === 'dark'}
           handleDiameter={16}
-          onHandleColor={colors.secondary}
-          offHandleColor={colors.secondary}
+          onHandleColor={colors.primary}
+          offHandleColor={colors.primary}
           height={20}
           width={42}
-          offColor={colors.secondaryOpacity}
-          onColor={colors.secondaryOpacity}
+          offColor={colors.primaryOpacity}
+          onColor={colors.primaryOpacity}
           uncheckedIcon={false}
           checkedIcon={false}
           uncheckedHandleIcon={<LightThemeIcon />}

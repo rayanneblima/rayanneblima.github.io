@@ -2,14 +2,16 @@ import styled from 'styled-components';
 
 export const TechCardContainer = styled.div`
   align-items: center;
-  background: var(--primary-background);
+  background: var(--tertiary-background);
   border: 2px solid var(--primary-opacity);
   border-radius: 10px;
   display: flex;
+  height: 100px;
   width: 300px;
 
   @media (max-width: 375px) {
     width: 260px;
+  }
 `;
 
 export const TechContent = styled.div`

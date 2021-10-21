@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TimelineNavContainer = styled.div`
-  align-items: center;
+  align-items: baseline;
   display: flex;
   gap: 20px;
   margin-inline: auto;
@@ -27,7 +27,8 @@ export const TimelineNavContainer = styled.div`
     }
 
     li.active {
-      background: var(--secondary);
+      background: var(--primary);
+      color: var(--secondary-text);
     }
 
     li:hover {

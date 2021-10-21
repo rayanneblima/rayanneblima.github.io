@@ -7,7 +7,7 @@ export const ProjectCardContainer = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 230px;
+  height: 240px;
   padding: 20px 20px 0;
   width: 260px;
 `;
@@ -19,8 +19,8 @@ export const ProjectHeader = styled.header`
   width: 100%;
 
   svg {
-    color: var(--secondary);
-    font-size: 6rem;
+    color: var(--primary);
+    font-size: 4rem;
   }
 
   p {
@@ -35,7 +35,7 @@ export const ProjectHeader = styled.header`
   }
 
   p svg:hover {
-    color: var(--secondary-opacity)
+    color: var(--primary-opacity)
   }
 `;
 
@@ -72,6 +72,8 @@ export const ProjectFooter = styled.footer`
   gap: 10px;
   height: 40px;
   text-transform: capitalize;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 
   overflow-x: scroll;
   overflow-y: hidden;

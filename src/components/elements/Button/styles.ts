@@ -34,4 +34,8 @@ export const BtnContainer = styled.button<ButtonProps>`
           ? 'rgba(255, 255, 255, 0.15)'
           : 'rgba(0, 0, 0, 0.15)'};
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;

@@ -9,6 +9,7 @@ type defaultProps = {
 
 export const HomeContainer = styled.section<defaultProps>`
   background: url('${(props) => props.themeTitle === 'dark' ? bgEffectDark : bgEffectLight}');
+  background-color: ${(props) => props.theme.colors.primaryBackground};
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

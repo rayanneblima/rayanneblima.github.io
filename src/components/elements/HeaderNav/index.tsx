@@ -24,6 +24,7 @@ const NavHeader: React.FC = () => {
       >
         <MenuIcon onClick={handleToggleOpenMenu} className="btn-menu open" />
         <CloseIcon onClick={handleToggleOpenMenu} className="btn-menu close" />
+
         <ul>
           <li>
             <NavHashLink
@@ -41,6 +42,24 @@ const NavHeader: React.FC = () => {
               to="#sobre"
             >
               Sobre
+            </NavHashLink>
+          </li>
+          <li>
+            <NavHashLink
+              activeClassName='active-anchor'
+              smooth
+              to="#timeline"
+            >
+              Experiências
+            </NavHashLink>
+          </li>
+          <li>
+            <NavHashLink
+              activeClassName='active-anchor'
+              smooth
+              to="#tecnologias"
+            >
+              Techs
             </NavHashLink>
           </li>
           <li>

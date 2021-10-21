@@ -24,8 +24,8 @@ const Main: React.FC<defaultProps> = ({ themeTitle }) => {
           <h1>Rayanne B. Lima</h1>
           <h3>Desenvolvedora Full Stack</h3>
           <div>
-            <Button isOutlined bgColor="secondary" linkTo="contato">Orçamento</Button>
-            <Button bgColor="secondary" linkTo="projetos">Projetos</Button>
+            <Button isOutlined bgColor="primary" linkTo="contato">Orçamento</Button>
+            <Button bgColor="primary" txtColor="secondary-text" linkTo="projetos">Projetos</Button>
           </div>
         </Description>
 

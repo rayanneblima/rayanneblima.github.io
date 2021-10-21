@@ -7,6 +7,7 @@ export const ProjectsContainer = styled.section`
   margin-inline: auto;
   min-height: 100vh;
   max-width: 1200px;
+  padding-top: 15vh;
   width: 100%;
 
   @media (max-width: 640px) {
@@ -54,7 +55,7 @@ export const ContentContainer = styled.div`
   align-self: center;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 60px;
   margin-inline: auto;
   min-height: 60vh;
   padding: 25px 20px;

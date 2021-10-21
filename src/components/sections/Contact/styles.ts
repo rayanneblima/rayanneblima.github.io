@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import bgWavesDark from '../../../assets/waves-dark.svg';
 import bgWavesLight from '../../../assets/waves-light.svg';
-import formEffect from '../../../assets/form-effect.svg';
 
 type defaultProps = {
   themeTitle: string;
@@ -10,52 +9,36 @@ type defaultProps = {
 
 export const ContactContainer = styled.section<defaultProps>`
   background: url('${(props) => props.themeTitle === 'dark' ? bgWavesDark : bgWavesLight}');
-  background-color: ${(props) => props.themeTitle === 'dark' ? 'var(--primary-text)' : 'var(--secondary-background)'};
-  background-position: bottom;
+  background-position: initial;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 
   align-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 50px;
-  height: 100vh;
+  height: auto;
   justify-content: center;
   margin-inline: auto;
-  max-width: 1200px;
+  /* max-width: 1200px; */
+  padding: 20px 0;
   width: 100%;
-
-
-  @media (max-width: 780px) {
-    background-size: contain;
-    min-height: 140vh;
-    padding: 20px 0;
-  }
-
-  @media (max-width: 560px) {
-    background-size: 100vh;
-  }
 `;
 
 export const FormContainer = styled.div`
-  background: url(${formEffect});
-  background-color: var(--primary-background);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto;
+  background-color: var(--secondary-background);
 
   align-items: center;
   border-radius: 10px;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
-  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-evenly;
   min-height: 340px;
-  justify-content: center;
   padding: 20px;
   text-align: center;
   width: 80%;
-
 
   h1 {
     font-size: 4.6rem;
@@ -64,9 +47,9 @@ export const FormContainer = styled.div`
     text-transform: none;
   }
 
-  @media (max-width: 540px) {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+  p {
+    font-size: 2rem;
+    margin-top: 20px;
   }
 `;
 
@@ -87,7 +70,7 @@ export const SocialIcons = styled.div`
 `;
 
 export const FooterContact = styled.footer`
-color: var(--secondary-text);
+color: var(--primary-text);
   text-align: center;
 
   span {

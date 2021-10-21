@@ -3,16 +3,18 @@ import styled from 'styled-components';
 export const TimelineContainer = styled.section`
   align-items: center;
   display: flex;
-  height: 100vh;
+  height: auto;
   justify-content: space-between;
   margin-inline: auto;
   max-width: 1200px;
+  padding-top: 15vh;
   width: 100%;
-`;
+  `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 40px;
   justify-content: space-between;
   width: 100%;
 
@@ -41,7 +43,6 @@ export const ContentContainer = styled.div`
   align-items: center;
   display: flex;
   margin-inline: auto;
-  min-height: 60vh;
   padding: 0 20px;
   width: 100%;
 

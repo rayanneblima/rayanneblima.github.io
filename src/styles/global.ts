@@ -46,7 +46,6 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.colors.primaryBackground};
     color: var(--primary-text);
 		line-height: 1.5;
     height: 100vh;
@@ -57,6 +56,7 @@ export default createGlobalStyle`
 
   /* sticky header */
   #root {
+    background: ${(props) => props.theme.colors.secondaryBackground};
     position: relative;
   }
 
@@ -64,6 +64,7 @@ export default createGlobalStyle`
     position: sticky;
     top: 0;
   }
+
 
   /* sticky header */
 

@@ -3,10 +3,11 @@ import styled from 'styled-components';
 export const AboutMeContainer = styled.section`
   align-items: center;
   display: flex;
-  height: 85vh;
+  height: auto;
   justify-content: space-between;
   margin-inline: auto;
   max-width: 1200px;
+  padding-top: 15vh;
   width: 100%;
 `;
 
@@ -16,7 +17,7 @@ export const Content = styled.div`
   justify-content: space-between;
 
   h1 {
-    font-family: 'Roboto' ;
+    font-family: 'Roboto';
     font-weight: 500;
 
     margin-bottom: 1.2em;
@@ -40,29 +41,19 @@ export const ContentContainer = styled.div`
   align-items: center;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  height: 60vh;
+  height: auto;
   margin-inline: auto;
   padding: 0 20px;
 
-  background: var(--secondary-background);
+  div {
+    margin-inline: auto;
+  }
 
   @media (max-width: 624px) {
     gap: 20px;
     grid-template-columns: none;
     grid-template-rows: repeat(2, 1fr);
-    height: 75vh;
     padding: 20px;
-
-    .illustration-about-me {
-      width: 40%;
-    }
-  }
-
-  @media (max-width: 375px) {
-    height: 70vh;
-    .illustration-about-me {
-      display: none;
-    }
   }
 `;
 
