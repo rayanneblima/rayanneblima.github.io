@@ -5,12 +5,14 @@ export const TimelineNavContainer = styled.div`
   display: flex;
   gap: 20px;
   margin-inline: auto;
+  width: 100%;
 
   ul {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 220px;
 
     border-left: 2px solid var(--primary);
     transition: width 0.2s ease-in-out;
@@ -23,7 +25,7 @@ export const TimelineNavContainer = styled.div`
       transition: all 0.3s ease-in-out;
       text-align: center;
       text-transform: capitalize;
-      width: 150px;
+      width: 95%;
     }
 
     li.active {
@@ -58,6 +60,12 @@ export const TimelineNavContainer = styled.div`
 `;
 
 export const TimelineContent = styled.div`
+  width: calc(100% - 200px);
+  
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+
   h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;

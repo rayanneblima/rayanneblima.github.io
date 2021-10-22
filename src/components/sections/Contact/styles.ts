@@ -37,6 +37,7 @@ export const FormContainer = styled.div`
   justify-content: space-evenly;
   min-height: 340px;
   padding: 20px;
+  position: relative;
   text-align: center;
   width: 80%;
 
@@ -50,6 +51,18 @@ export const FormContainer = styled.div`
   p {
     font-size: 2rem;
     margin-top: 20px;
+  }
+  
+  .logo-form {
+    bottom: 20px;
+    left: 20px;
+    position: absolute;
+  }
+  
+  @media (max-width: 768px) {
+    .logo-form {
+      display: none;
+    }
   }
 `;
 

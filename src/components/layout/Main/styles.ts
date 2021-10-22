@@ -8,8 +8,13 @@ export const MainContainer = styled.main`
   justify-content: space-between;
   margin-inline: auto;
   max-width: 1200px;
-  padding: 0 20px;
+  padding: 0 20px 20px;
   width: 100%;
+  
+  @media (max-width: 590px) {
+    justify-content: center;
+    gap: 2rem;
+  }
 `;
 
 export const TopContent = styled.div`
@@ -23,11 +28,13 @@ export const TopContent = styled.div`
   @media (max-width: 590px) {
     flex-direction: column-reverse;
     gap: 4rem;
+    height: 80vh;
   }
 
   @media (max-width: 425px) {
     flex-direction: column-reverse;
     gap: 1rem;
+    height: 60vh;
   }
 `;
 
@@ -98,15 +105,21 @@ export const Picture = styled.div`
   height: 100%;
   justify-content: center;
   width: 100%;
+  
+   @media (max-width: 1100px) {
+    div, img {
+      width: 90%;
+    }
+  }
 
   @media (max-width: 768px) {
-    div {
-      width: 130%;
+    div, img {
+      width: 100%;
     }
   }
 
   @media (max-width: 590px) {
-    width: 40%;
+    width: 60%;
   }
 
   @media (max-width: 375px) {

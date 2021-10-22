@@ -44,6 +44,8 @@ export const ContentContainer = styled.div`
   height: auto;
   margin-inline: auto;
   padding: 0 20px;
+  
+  font-weight: 100;
 
   div {
     margin-inline: auto;

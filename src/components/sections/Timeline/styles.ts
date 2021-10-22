@@ -58,10 +58,9 @@ export const MiddleContainer = styled.div`
   padding: 0 20px;
 
   height: 70%;
-  width: 70%;
+  width: 90%;
 
   @media (max-width: 640px) {
     padding: 0;
-    width: 90%;
   }
 `;

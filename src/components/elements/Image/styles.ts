@@ -9,7 +9,6 @@ export const Container = styled.div<imageProps>`
   height: ${(props) => props.height ? `${props.height}%` : '' };
   width: ${(props) => props.width ? `${props.width}%` : '' };
 
-
   align-items: center;
   display: flex;
   justify-content: center;

@@ -9,6 +9,7 @@ import EmailIcon from '@material-ui/icons/Email';
 import ContactForm from '../../elements/ContactForm';
 
 import { ContactContainer, FormContainer, SocialIcons, FooterContact } from './styles';
+import Logo from "../../layout/partials/Logo";
 
 const Contact: React.FC = () => {
   const { title } = useContext(ThemeContext);
@@ -21,6 +22,8 @@ const Contact: React.FC = () => {
           <p>Informe os detalhes e entrarei em contato assim que possível.</p>
         </span>
         <ContactForm />
+
+        <Logo className="logo-form" />
       </FormContainer>
       <SocialIcons>
         <a href="https://github.com/rayanneblima" target="_blank" rel="noreferrer">

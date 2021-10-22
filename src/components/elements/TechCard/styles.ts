@@ -6,7 +6,7 @@ export const TechCardContainer = styled.div`
   border: 2px solid var(--primary-opacity);
   border-radius: 10px;
   display: flex;
-  height: 100px;
+  min-height: 100px;
   width: 300px;
 
   @media (max-width: 375px) {
@@ -19,7 +19,7 @@ export const TechContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 10px 20px;
+  padding: 10px;
   width: 100%;
 
   div {

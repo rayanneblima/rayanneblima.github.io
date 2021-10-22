@@ -62,7 +62,7 @@ const TechCard: React.FC<defaultProps> = ({
       <Image
         srcName={`tech/${logo}-icon.svg`}
         alt={`Logomarca - ${title}`}
-        className="tech-logo"
+        className="tech-logo rotate"
         width={60}
       />
       <TechContent>

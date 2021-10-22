@@ -1,44 +1,38 @@
 export const jobs = [
   {
-    company: "Empresa 1",
-    function: "Dev. Front-End",
-    date: "Maio de 2021 - Junho 2021",
+    company: "Tek-System Informática",
+    function: "Dev. FullStack",
+    date: "Abril de 2021 - Atual",
     description: [
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt quisquam aperiam perferendis hic excepturi optio quod minus ad enim reiciendis, fuga molestiae, libero cum dolores. Nam cupiditate libero veritatis.",
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt quisquam aperiam.",
-      ""
+      "Desenvolvimento de melhorias e novas funcionalidades para os sistemas web da empresa utilizando Delphi, Javascript, VueJS, Vuetify, Sourcetree e Docker;",
+      "Melhorias e criação de componentes para a biblioteca de layout utilizando HTML, CSS, Vue, Vuetify e Figma;",
+      "Estudos sobre Spring Boot, RabbitMQ e Micro Serviços;",
+      "Auxiliando no treinamento em Desenvolvimento Web para outros coloboradores da empresa."
     ],
   },
   {
-    company: "Empresa 2",
-    function: "Dev. Full Stack",
-    date: "Maio de 2021 - Junho 2021",
+    company: "Freelancer",
+    function: "Dev. FullStack",
+    date: "Abril de 2018 - Atual",
     description: [
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt quisquam aperiam perferendis hic excepturi optio quod minus ad enim reiciendis, fuga molestiae, libero cum dolores. Nam cupiditate libero veritatis.",
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt quisquam aperiam.",
-      "Lorem ipsum dolor",
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt quisquam aperiam perferendis hic excepturi optio quod minus ad enim reiciendis, fuga molestiae, libero cum dolores. Nam cupiditate libero veritatis.",
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt quisquam aperiam perferendis hic excepturi optio quod minus ad enim reiciendis, fuga molestiae, libero cum dolores. Nam cupiditate libero veritatis.",
+      "Atuando como Freelancer em desenvolvimento de sites e aplicativos, utilizando HTML, CSS, JS, VueJS, PHP, Joomla!, Java, Banco de Dados e Deploy."
     ],
   },
   {
-    company: "Empresa 3",
-    function: "Dev. Front-End",
-    date: "Maio de 2021 - Junho 2021",
+    company: "HandOver",
+    function: "Dev. Full Stack (Estágio)",
+    date: "Janeiro de 2021 - Abril de 2021",
     description: [
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt quisquam aperiam perferendis hic excepturi optio quod minus ad enim reiciendis, fuga molestiae, libero cum dolores. Nam cupiditate libero veritatis.",
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt quisquam aperiam.",
-      ""
+      "Estudos sobre React, React Native, NodeJS, ExpressJS, RabbitMQ e TDD;",
+      "Melhorias ou criação de novas funcionalidades para o sistema e aplicativo da empresa."
     ],
   },
   {
-    company: "Empresa 4",
-    function: "Dev. Front-End",
-    date: "Maio de 2021 - Junho 2021",
+    company: "More Than Real",
+    function: "Dev. Front-End (Freelancer)",
+    date: "Setembro de 2020 - Dezembro de 2020",
     description: [
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt quisquam aperiam perferendis hic excepturi optio quod minus ad enim reiciendis, fuga molestiae, libero cum dolores. Nam cupiditate libero veritatis.",
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus incidunt quisquam aperiam.",
-      ""
+      "Desenvolvimento de landing pages e páginas para o sistema da empresa, utilizando HTML, CSS, JavaScript e Docker."
     ],
-  },
+  }
 ];
