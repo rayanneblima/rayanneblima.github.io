@@ -9,7 +9,7 @@ export const techs = [
     title: "SASS",
     logo: "sass",
     level: "1",
-    description: "Carca de 1 ano de experiência na estilização de aplicações web e mobile.",
+    description: "Mais de 1 ano de experiência na estilização de aplicações web e mobile.",
   },
   {
     title: "VueJS",
