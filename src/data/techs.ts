@@ -15,7 +15,7 @@ export const techs = [
     title: "VueJS",
     logo: "vuejs",
     level: "2",
-    description: "Cerca de 1 ano de experiência na construção e manutenção de aplicações web e mobile.",
+    description: "Mais de 1 ano de experiência na construção e manutenção de aplicações web e mobile.",
   },
   {
     title: "ReactJS",
@@ -69,7 +69,7 @@ export const techs = [
     title: "Git",
     logo: "git",
     level: "2",
-    description: "Mais de 3 anos de experiência no versionamento de códigos.",
+    description: "Mais de 4 anos de experiência no versionamento de códigos.",
   },
   {
     title: "Docker",
