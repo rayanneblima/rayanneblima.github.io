@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useForm } from "react-hook-form";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,20 +24,29 @@ type FormData = {
 };
 
 const ContactForm: React.FC = () => {
-  const { register, handleSubmit } = useForm<FormData>();
+  const [values, setValues] = useState<FormData>({
+    nome: '',
+    email: '',
+    assunto: '',
+    mensagem: '',
+  });
   const [disabled, setDisabled] = useState<boolean>(false);
 
-  const onSubmit = (data: FormData) => {
+  const handleChange = (event : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setValues({...values,[event.target.name] : event.target.value});
+  }
+
+  const onSubmit = (event : React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     const serviceID = 'service_jekgvx1';
     const templateID = 'template_go35emf';
     const userID = 'user_wlzu1KQ4lelekgwxR8bEW';
 
-
     emailjs.send(serviceID, templateID, {
-      name: data.nome,
-      assunto: data.assunto,
-      mensagem: data.mensagem,
-      email: data.email,
+      nome: values.nome,
+      assunto: values.assunto,
+      mensagem: values.mensagem,
+      email: values.email,
     }, userID)
       .then((result: { status: number }) => {
 
@@ -54,6 +62,13 @@ const ContactForm: React.FC = () => {
             draggable: true,
             progress: undefined,
           });
+
+          setValues({
+            nome: '',
+            email: '',
+            assunto: '',
+            mensagem: '',
+          });
         }
       }, (error: { text: string }) => {
         toast.error(`Ocorreu um erro ao enviar a mensagem. Tente novamente mais tarde. (${error.text})`, {
@@ -65,20 +80,20 @@ const ContactForm: React.FC = () => {
           draggable: true,
           progress: undefined,
         });
-      }).finally(() => {
         setDisabled(false);
       });
   };
 
   return (
     <ContactFormContainer
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={(e) => onSubmit(e)}
     >
       <ToastContainer />
       <Input
         placeholder="Nome Completo"
         type="text"
-        {...register("nome")}
+        name="nome"
+        changeHandler={handleChange}
       >
         <AccountCircleIcon />
       </Input>
@@ -86,7 +101,8 @@ const ContactForm: React.FC = () => {
       <Input
         placeholder="E-mail"
         type="email"
-        {...register("email")}
+        name="email"
+        changeHandler={handleChange}
       >
         <EmailIcon />
       </Input>
@@ -94,7 +110,8 @@ const ContactForm: React.FC = () => {
       <Input
         placeholder="Assunto"
         type="text"
-        {...register("assunto")}
+        name="assunto"
+        changeHandler={handleChange}
       >
         <InfoIcon />
       </Input>
@@ -102,7 +119,8 @@ const ContactForm: React.FC = () => {
       <Input
         placeholder="Mensagem"
         isTextArea
-        {...register("mensagem")}
+        name="mensagem"
+        changeHandler={handleChange}
       >
         <ChatIcon />
       </Input>

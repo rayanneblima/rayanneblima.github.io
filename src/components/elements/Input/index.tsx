@@ -8,6 +8,8 @@ type InputProps = {
   name?: string;
   isTextArea?: boolean;
   children: ReactNode;
+  changeHandler: (event: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => void;
+  value?: string;
 };
 
 const Input: React.FC<InputProps> = ({
@@ -26,6 +28,9 @@ const Input: React.FC<InputProps> = ({
           type={type}
           placeholder={placeholder}
           name={name}
+          onChange={props.changeHandler}
+          value={props.value}
+          required
           {...props}
         />
       }
@@ -33,6 +38,9 @@ const Input: React.FC<InputProps> = ({
         <textarea
           placeholder={placeholder}
           name={name}
+          onChange={props.changeHandler}
+          value={props.value}
+          required
           {...props}
         />
       }
