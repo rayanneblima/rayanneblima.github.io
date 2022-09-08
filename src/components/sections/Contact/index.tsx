@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
         <a href="https://github.com/rayanneblima" target="_blank" rel="noreferrer">
           <GitHubIcon />
         </a>
-        <a href="https://linkedin.com/in/rayannebertolacelima" target="_blank" rel="noreferrer">
+        <a href="https://linkedin.com/in/rayanneblima" target="_blank" rel="noreferrer">
           <LinkedInIcon />
         </a>
         <a href="https://t.me/rayanneblima" target="_blank" rel="noreferrer">
