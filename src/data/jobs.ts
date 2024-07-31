@@ -1,8 +1,21 @@
 export const jobs = [
   {
+    company: "Deskbee",
+    function: "Dev. Full Stack",
+    date: "Fevereiro de 2023 - Atual",
+    description: [
+      "Desenvolvimento de melhorias, novas funcionalidades e novos módulos para os sistemas Web da empresa;",
+      "Melhorias e criação de interfaces;",
+      "Melhorias e criação de componentes do Design System;",
+      "Aplicação de testes end-to-end (e2e);",
+      "Inclusão de Acessibilidade;",
+      "Utilizando Javascript, VueJS, Quasar, Storybook, Laravel, Jira, Bitbucket, Figma, SonarQube e Docker."
+    ],
+  },
+  {
     company: "Tray | Locaweb",
     function: "Dev. Front-End Sênior",
-    date: "Março de 2022 - Atual",
+    date: "Março de 2022 - Fevereiro de 2023",
     description: [
       "Desenvolvimento de melhorias e novas funcionalidades para a área de checkout e carrinho da empresa;",
       "Melhorias e criação de componentes.",

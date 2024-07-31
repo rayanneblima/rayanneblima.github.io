@@ -27,7 +27,7 @@ const AboutMe: React.FC = () => {
           </p>
           <div>
             <Button linkTo="https://drive.google.com/drive/folders/1r1uh8oxsDG4BGBVtT7tnUlgg17IHRibb?usp=sharing" isOutlined isExternalLink>Certificados</Button>
-            <Button linkTo="https://drive.google.com/file/d/14jlZwcjElima6_-2gKlBpa2IAuNYkYje/view?usp=sharing" isExternalLink txtColor="secondary-text">Currículo</Button>
+            <Button linkTo="https://drive.google.com/file/d/1Jp_RSHL_rLUqLN0OK6P_oD6CvZgranp9/view?usp=drive_link" isExternalLink txtColor="secondary-text">Currículo</Button>
           </div>
           </AboutMeText>
         </ContentContainer>
