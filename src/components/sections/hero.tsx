@@ -115,15 +115,16 @@ function CursorTag({
   );
 }
 
+const SPLASH_OFFSET = 2.3; // cursor tags appear after splash fades
 const cursorTags = [
-  { label: "Vue.js",             color: "#42b883", x: "2%",  y: "18%", delay: 1.6, side: "right" as const, drift: { y: [0, -10, 4, 0], x: [0, 5, -3, 0],  dur: 6   } },
-  { label: "TypeScript",         color: "#3178c6", x: "85%", y: "15%", delay: 2.0, side: "left"  as const, drift: { y: [0, 8, -4, 0],  x: [0, -6, 2, 0],  dur: 7   } },
-  { label: "Design Systems",     color: "#dc2590", x: "1%",  y: "55%", delay: 2.4, side: "right" as const, drift: { y: [0, -8, 6, 0],  x: [0, 4, -2, 0],  dur: 5.5 } },
-  { label: "Acessibilidade",     color: "#10b981", x: "83%", y: "55%", delay: 1.8, side: "left"  as const, drift: { y: [0, 6, -8, 0],  x: [0, -4, 5, 0],  dur: 6.5 } },
-  { label: "Prompt Engineering",  color: "#8b5cf6", x: "3%",  y: "36%", delay: 2.6, side: "right" as const, drift: { y: [0, -12, 3, 0], x: [0, 6, -4, 0],  dur: 7.5 } },
-  { label: "Testes E2E",         color: "#f59e0b", x: "87%", y: "38%", delay: 2.2, side: "left"  as const, drift: { y: [0, 10, -6, 0], x: [0, -5, 3, 0],  dur: 5   } },
-  { label: "Next.js",            color: "#a78bfa", x: "2%",  y: "75%", delay: 3.0, side: "right" as const, drift: { y: [0, -6, 8, 0],  x: [0, 3, -5, 0],  dur: 6.8 } },
-  { label: "Product Thinking",   color: "#06b6d4", x: "80%", y: "74%", delay: 2.8, side: "left"  as const, drift: { y: [0, 7, -5, 0],  x: [0, -3, 6, 0],  dur: 5.8 } },
+  { label: "Vue.js",             color: "#42b883", x: "2%",  y: "18%", delay: SPLASH_OFFSET + 0.2, side: "right" as const, drift: { y: [0, -10, 4, 0], x: [0, 5, -3, 0],  dur: 6   } },
+  { label: "TypeScript",         color: "#3178c6", x: "85%", y: "15%", delay: SPLASH_OFFSET + 0.4, side: "left"  as const, drift: { y: [0, 8, -4, 0],  x: [0, -6, 2, 0],  dur: 7   } },
+  { label: "Design Systems",     color: "#dc2590", x: "1%",  y: "55%", delay: SPLASH_OFFSET + 0.6, side: "right" as const, drift: { y: [0, -8, 6, 0],  x: [0, 4, -2, 0],  dur: 5.5 } },
+  { label: "Acessibilidade",     color: "#10b981", x: "83%", y: "55%", delay: SPLASH_OFFSET + 0.3, side: "left"  as const, drift: { y: [0, 6, -8, 0],  x: [0, -4, 5, 0],  dur: 6.5 } },
+  { label: "Prompt Engineering",  color: "#8b5cf6", x: "3%",  y: "36%", delay: SPLASH_OFFSET + 0.8, side: "right" as const, drift: { y: [0, -12, 3, 0], x: [0, 6, -4, 0],  dur: 7.5 } },
+  { label: "Testes E2E",         color: "#f59e0b", x: "87%", y: "38%", delay: SPLASH_OFFSET + 0.5, side: "left"  as const, drift: { y: [0, 10, -6, 0], x: [0, -5, 3, 0],  dur: 5   } },
+  { label: "Next.js",            color: "#a78bfa", x: "2%",  y: "75%", delay: SPLASH_OFFSET + 1.0, side: "right" as const, drift: { y: [0, -6, 8, 0],  x: [0, 3, -5, 0],  dur: 6.8 } },
+  { label: "Product Thinking",   color: "#06b6d4", x: "80%", y: "74%", delay: SPLASH_OFFSET + 0.7, side: "left"  as const, drift: { y: [0, 7, -5, 0],  x: [0, -3, 6, 0],  dur: 5.8 } },
 ];
 
 /* ─── CV Download dropdown ───────────────────────────────── */
@@ -237,9 +238,25 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "10%" : "50%"]);
+  const opacity = useTransform(
+    scrollYProgress,
+    isMobile ? [0, 0.55, 1] : [0, 0.35, 0.85],
+    [1, 1, 0],
+  );
+  const scale = useTransform(
+    scrollYProgress,
+    isMobile ? [0, 0.55, 1] : [0, 0.35, 0.85],
+    [1, 1, 0.95],
+  );
   const smoothY = useSpring(y, { stiffness: 100, damping: 30 });
 
   const orbY = useTransform(scrollYProgress, [0, 1], [0, -60]);
@@ -269,7 +286,7 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-svh w-full overflow-hidden"
+      className="relative min-h-[130svh] w-full overflow-hidden sm:min-h-svh"
     >
       {/* ─── Grid background ─── */}
       <div
@@ -333,12 +350,12 @@ export function Hero() {
 
       {/* ─── Main content (centered) ─── */}
       <motion.div
-        className="relative z-20 flex min-h-svh flex-col items-center justify-center px-4 pt-20 pb-6 sm:px-6 sm:pb-10 lg:px-8"
+        className="relative z-20 flex min-h-svh flex-col items-center justify-center px-4 pt-16 pb-4 sm:px-6 sm:pt-20 sm:pb-10 lg:px-8"
         style={{ y: smoothY, opacity, scale }}
       >
         <div className="mx-auto max-w-6xl text-center">
           {/* Avatar — CSS animation (no opacity:0 in SSR for LCP) */}
-          <div className="hero-avatar mb-6 flex justify-center">
+          <div className="hero-avatar mb-4 flex justify-center sm:mb-6">
             <div className="relative">
               <img
                 src="/images/rayanne-hero.webp"
@@ -364,7 +381,7 @@ export function Hero() {
           </div>
 
           {/* Badge / micro label — CSS animation */}
-          <div className="hero-badge mb-8 inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 backdrop-blur-sm">
+          <div className="hero-badge mb-5 inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 backdrop-blur-sm sm:mb-8">
             <TextScramble
               text="Frontend Lead & Full Stack Developer"
               className="text-sm font-medium text-accent"
@@ -396,7 +413,7 @@ export function Hero() {
           </p>
 
           {/* Sub copy — CSS animation */}
-          <p className="hero-sub mx-auto mb-8 max-w-2xl text-base text-text-tertiary sm:mb-12 sm:text-lg">
+          <p className="hero-sub mx-auto mb-6 max-w-2xl text-base text-text-tertiary sm:mb-12 sm:text-lg">
             {t("sub")}
           </p>
 
@@ -404,7 +421,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
+            transition={{ duration: 0.8, delay: 3.0 }}
             className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <MagneticButton
@@ -439,8 +456,8 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
-            className="mt-8 flex items-center justify-center gap-5 sm:mt-10 lg:mt-14"
+            transition={{ duration: 0.8, delay: 3.2 }}
+            className="mt-5 flex items-center justify-center gap-5 sm:mt-10 lg:mt-14"
           >
             {[
               {
@@ -505,8 +522,8 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 2 }}
-            className="mt-6 flex justify-center sm:mt-8 lg:mt-10"
+            transition={{ duration: 1, delay: 3.5 }}
+            className="mt-4 hidden justify-center sm:mt-8 sm:flex lg:mt-10"
           >
             <motion.button
               onClick={scrollToWork}
