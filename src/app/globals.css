@@ -141,42 +141,46 @@ body {
    ═══════════════════════════════════════════════ */
 /* Splash overlay — visible for 2s, fades out over 0.5s */
 @keyframes splash-fade-out {
-  0% { opacity: 1; pointer-events: auto; }
-  100% { opacity: 0; pointer-events: none; visibility: hidden; }
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .splash-overlay {
+  will-change: opacity;
   animation: splash-fade-out 0.5s cubic-bezier(0.22, 1, 0.36, 1) 2s forwards;
 }
 
 /* Splash inner element animations */
 @keyframes splash-icon-in {
-  0% { opacity: 0; transform: scale(0.6); filter: blur(20px); }
-  100% { opacity: 1; transform: scale(1); filter: blur(0px); }
+  0% { opacity: 0; transform: scale(0.6) translateZ(0); }
+  100% { opacity: 1; transform: scale(1) translateZ(0); }
 }
 
 @keyframes splash-brand-in {
-  from { opacity: 0; transform: translateY(8px); filter: blur(4px); }
-  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+  from { opacity: 0; transform: translateY(8px) translateZ(0); }
+  to { opacity: 1; transform: translateY(0) translateZ(0); }
 }
 
 @keyframes splash-slide-in {
-  0% { opacity: 0; transform: translateY(12px); filter: blur(8px); }
-  100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+  0% { opacity: 0; transform: translateY(12px) translateZ(0); }
+  100% { opacity: 1; transform: translateY(0) translateZ(0); }
 }
 
 .splash-icon {
   opacity: 0;
+  will-change: transform, opacity;
   animation: splash-icon-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
 }
 
 .splash-brand {
   opacity: 0;
+  will-change: transform, opacity;
   animation: splash-brand-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
 }
 
 .splash-subtitle {
   opacity: 0;
+  will-change: transform, opacity;
   animation: splash-slide-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
 }
 
@@ -217,6 +221,84 @@ body {
 
 .hero-sub {
   animation: hero-text-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 2.7s both;
+}
+
+/* ═══════════════════════════════════════════════
+   Hero — CSS infinite animations (moved from Framer Motion to compositor)
+   ═══════════════════════════════════════════════ */
+
+/* Floating particles — float up and fade */
+@keyframes particle-float {
+  0% { opacity: 0; transform: scale(0) translateY(0) translateZ(0); }
+  25% { opacity: 1; transform: scale(1) translateY(-25px) translateZ(0); }
+  75% { opacity: 1; transform: scale(1) translateY(-75px) translateZ(0); }
+  100% { opacity: 0; transform: scale(0) translateY(-100px) translateZ(0); }
+}
+
+.hero-particle {
+  will-change: transform, opacity;
+  animation: particle-float 3s ease-in-out infinite;
+}
+
+/* Gradient orbs — breathe scale + opacity */
+@keyframes orb-breathe {
+  0%, 100% { transform: scale(1) translateZ(0); opacity: 0.3; }
+  50% { transform: scale(1.2) translateZ(0); opacity: 0.5; }
+}
+
+.hero-orb {
+  will-change: transform, opacity;
+  animation: orb-breathe 8s ease-in-out infinite;
+}
+
+/* Cursor tag drift — gentle float */
+@keyframes cursor-drift-1 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(5px, -10px); } 50% { transform: translate(-3px, 4px); } 75% { transform: translate(2px, -5px); } }
+@keyframes cursor-drift-2 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(-6px, 8px); } 50% { transform: translate(2px, -4px); } 75% { transform: translate(-3px, 5px); } }
+@keyframes cursor-drift-3 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(4px, -8px); } 50% { transform: translate(-2px, 6px); } 75% { transform: translate(3px, -4px); } }
+@keyframes cursor-drift-4 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(-4px, 6px); } 50% { transform: translate(5px, -8px); } 75% { transform: translate(-2px, 4px); } }
+
+.cursor-drift-1 { animation: cursor-drift-1 6s ease-in-out infinite; }
+.cursor-drift-2 { animation: cursor-drift-2 7s ease-in-out infinite; }
+.cursor-drift-3 { animation: cursor-drift-3 5.5s ease-in-out infinite; }
+.cursor-drift-4 { animation: cursor-drift-4 6.5s ease-in-out infinite; }
+
+/* Cursor tag label pulse */
+@keyframes cursor-label-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.cursor-label-pulse {
+  will-change: transform;
+  animation: cursor-label-pulse 3s ease-in-out infinite;
+}
+
+/* Scroll indicator bounce */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+@keyframes scroll-dot {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+
+.scroll-bounce {
+  will-change: transform;
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+.scroll-dot {
+  will-change: transform;
+  animation: scroll-dot 2s ease-in-out infinite;
+}
+
+/* Cursor tag entrance — one-shot */
+@keyframes cursor-tag-in {
+  0% { opacity: 0; transform: scale(0) translateZ(0); }
+  60% { opacity: 1; transform: scale(1.15) translateZ(0); }
+  100% { opacity: 1; transform: scale(1) translateZ(0); }
 }
 
 /* Retro grid — infinite vertical scroll */

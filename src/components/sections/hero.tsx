@@ -6,20 +6,23 @@ import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "fra
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { TextScramble } from "@/components/ui/text-scramble";
 
-/* ─── Floating particle ──────────────────────────────────── */
+/* ─── Floating particle (CSS animation — no JS on main thread) ─── */
 function Particle({ x, y, size, delay }: { x: number; y: number; size: number; delay: number }) {
   return (
-    <motion.div
-      className="absolute rounded-full bg-accent/20"
-      style={{ left: `${x}%`, top: `${y}%`, width: size, height: size }}
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: [0, 1, 0], scale: [0, 1, 0], y: [0, -100] }}
-      transition={{ duration: 3, delay, repeat: Infinity, repeatDelay: Math.random() * 2 }}
+    <div
+      className="absolute rounded-full bg-accent/20 hero-particle"
+      style={{
+        left: `${x}%`,
+        top: `${y}%`,
+        width: size,
+        height: size,
+        animationDelay: `${delay}s`,
+      }}
     />
   );
 }
 
-/* ─── Animated gradient orb ──────────────────────────────── */
+/* ─── Animated gradient orb (CSS animation — compositor thread) ─── */
 function GradientOrb({
   size,
   gradient,
@@ -38,23 +41,32 @@ function GradientOrb({
   animDelay?: number;
 }) {
   return (
-    <motion.div
-      className="absolute rounded-full blur-3xl opacity-30"
-      style={{ width: size, height: size, background: gradient, top, left, right, bottom }}
-      animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-      transition={{ duration: 8, delay: animDelay, repeat: Infinity, ease: "easeInOut" }}
+    <div
+      className="absolute rounded-full blur-3xl opacity-30 hero-orb"
+      style={{
+        width: size,
+        height: size,
+        background: gradient,
+        top,
+        left,
+        right,
+        bottom,
+        animationDelay: `${animDelay}s`,
+      }}
     />
   );
 }
 
-/* ─── Collaborative cursor tag (Figma-style) ────────────── */
+/* ─── Collaborative cursor tag (CSS animations — compositor thread) ─── */
+const DRIFT_CLASSES = ["cursor-drift-1", "cursor-drift-2", "cursor-drift-3", "cursor-drift-4"] as const;
+
 function CursorTag({
   label,
   color,
   x,
   y,
   delay = 0,
-  drift,
+  driftIndex,
   side = "left",
 }: {
   label: string;
@@ -62,23 +74,22 @@ function CursorTag({
   x: string;
   y: string;
   delay?: number;
-  drift: { y: number[]; x: number[]; dur: number };
+  driftIndex: number;
   side?: "left" | "right";
 }) {
   const isRight = side === "right";
 
   return (
-    <motion.div
+    <div
       className="absolute pointer-events-none hidden lg:block"
-      style={{ left: x, top: y }}
-      initial={{ opacity: 0, scale: 0, filter: "blur(8px)" }}
-      animate={{ opacity: [0, 1, 1], scale: [0, 1.15, 1], filter: ["blur(8px)", "blur(0px)", "blur(0px)"] }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1], times: [0, 0.6, 1] }}
+      style={{
+        left: x,
+        top: y,
+        animation: `cursor-tag-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s both`,
+      }}
     >
-      <motion.div
-        animate={{ y: drift.y, x: drift.x }}
-        transition={{ duration: drift.dur, repeat: Infinity, ease: "easeInOut" }}
-        className={isRight ? "flex flex-row-reverse items-start" : ""}
+      <div
+        className={`${DRIFT_CLASSES[driftIndex % DRIFT_CLASSES.length]} ${isRight ? "flex flex-row-reverse items-start" : ""}`}
       >
         {/* Cursor SVG — mirrored horizontally for right-side arrow */}
         <svg
@@ -97,34 +108,33 @@ function CursorTag({
           />
         </svg>
         {/* Label bubble */}
-        <motion.div
-          className={`${isRight ? "mr-2 mt-1" : "ml-2.5 -mt-1"}  rounded-full px-3 py-1.5 shadow-lg backdrop-blur-sm`}
+        <div
+          className={`${isRight ? "mr-2 mt-1" : "ml-2.5 -mt-1"} cursor-label-pulse rounded-full px-3 py-1.5 shadow-lg backdrop-blur-sm`}
           style={{
             backgroundColor: color,
             boxShadow: `0 4px 20px ${color}40`,
+            animationDelay: `${delay * 0.3}s`,
           }}
-          animate={{ scale: [1, 1.04, 1] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: delay * 0.3 }}
         >
           <span className="whitespace-nowrap text-xs font-semibold leading-none text-white tracking-wide">
             {label}
           </span>
-        </motion.div>
-      </motion.div>
-    </motion.div>
+        </div>
+      </div>
+    </div>
   );
 }
 
 const SPLASH_OFFSET = 2.3; // cursor tags appear after splash fades
 const cursorTags = [
-  { label: "Vue.js",             color: "#42b883", x: "2%",  y: "18%", delay: SPLASH_OFFSET + 0.2, side: "right" as const, drift: { y: [0, -10, 4, 0], x: [0, 5, -3, 0],  dur: 6   } },
-  { label: "TypeScript",         color: "#3178c6", x: "85%", y: "15%", delay: SPLASH_OFFSET + 0.4, side: "left"  as const, drift: { y: [0, 8, -4, 0],  x: [0, -6, 2, 0],  dur: 7   } },
-  { label: "Design Systems",     color: "#dc2590", x: "1%",  y: "55%", delay: SPLASH_OFFSET + 0.6, side: "right" as const, drift: { y: [0, -8, 6, 0],  x: [0, 4, -2, 0],  dur: 5.5 } },
-  { label: "Acessibilidade",     color: "#10b981", x: "83%", y: "55%", delay: SPLASH_OFFSET + 0.3, side: "left"  as const, drift: { y: [0, 6, -8, 0],  x: [0, -4, 5, 0],  dur: 6.5 } },
-  { label: "Prompt Engineering",  color: "#8b5cf6", x: "3%",  y: "36%", delay: SPLASH_OFFSET + 0.8, side: "right" as const, drift: { y: [0, -12, 3, 0], x: [0, 6, -4, 0],  dur: 7.5 } },
-  { label: "Testes E2E",         color: "#f59e0b", x: "87%", y: "38%", delay: SPLASH_OFFSET + 0.5, side: "left"  as const, drift: { y: [0, 10, -6, 0], x: [0, -5, 3, 0],  dur: 5   } },
-  { label: "Next.js",            color: "#a78bfa", x: "2%",  y: "75%", delay: SPLASH_OFFSET + 1.0, side: "right" as const, drift: { y: [0, -6, 8, 0],  x: [0, 3, -5, 0],  dur: 6.8 } },
-  { label: "Product Thinking",   color: "#06b6d4", x: "80%", y: "74%", delay: SPLASH_OFFSET + 0.7, side: "left"  as const, drift: { y: [0, 7, -5, 0],  x: [0, -3, 6, 0],  dur: 5.8 } },
+  { label: "Vue.js",             color: "#42b883", x: "2%",  y: "18%", delay: SPLASH_OFFSET + 0.2, side: "right" as const, driftIndex: 0 },
+  { label: "TypeScript",         color: "#3178c6", x: "85%", y: "15%", delay: SPLASH_OFFSET + 0.4, side: "left"  as const, driftIndex: 1 },
+  { label: "Design Systems",     color: "#dc2590", x: "1%",  y: "55%", delay: SPLASH_OFFSET + 0.6, side: "right" as const, driftIndex: 2 },
+  { label: "Acessibilidade",     color: "#10b981", x: "83%", y: "55%", delay: SPLASH_OFFSET + 0.3, side: "left"  as const, driftIndex: 3 },
+  { label: "Prompt Engineering",  color: "#8b5cf6", x: "3%",  y: "36%", delay: SPLASH_OFFSET + 0.8, side: "right" as const, driftIndex: 0 },
+  { label: "Testes E2E",         color: "#f59e0b", x: "87%", y: "38%", delay: SPLASH_OFFSET + 0.5, side: "left"  as const, driftIndex: 1 },
+  { label: "Next.js",            color: "#a78bfa", x: "2%",  y: "75%", delay: SPLASH_OFFSET + 1.0, side: "right" as const, driftIndex: 2 },
+  { label: "Product Thinking",   color: "#06b6d4", x: "80%", y: "74%", delay: SPLASH_OFFSET + 0.7, side: "left"  as const, driftIndex: 3 },
 ];
 
 /* ─── CV Download dropdown ───────────────────────────────── */
@@ -261,10 +271,11 @@ export function Hero() {
 
   const orbY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
-  /* Particles — generated once on mount */
+  /* Particles — fewer on mobile for performance */
   const [particles, setParticles] = useState<{ x: number; y: number; size: number; delay: number }[]>([]);
   useEffect(() => {
-    const p = Array.from({ length: 15 }, () => ({
+    const count = window.innerWidth < 640 ? 5 : 15;
+    const p = Array.from({ length: count }, () => ({
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: Math.random() * 4 + 2,
@@ -333,7 +344,7 @@ export function Hero() {
       {/* ─── Collaborative cursor tags (above vignette, fades with hero) ─── */}
       <motion.div className="absolute inset-0 z-40 pointer-events-none overflow-hidden" style={{ opacity }}>
         {cursorTags.map((tag) => (
-          <CursorTag key={tag.label} {...tag} />
+          <CursorTag key={tag.label} label={tag.label} color={tag.color} x={tag.x} y={tag.y} delay={tag.delay} side={tag.side} driftIndex={tag.driftIndex} />
         ))}
       </motion.div>
 
@@ -518,31 +529,27 @@ export function Hero() {
             ))}
           </motion.div>
 
-          {/* Scroll indicator (in flow, not absolute) */}
+          {/* Scroll indicator (in flow, not absolute) — CSS animations */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 3.5 }}
             className="mt-4 hidden justify-center sm:mt-8 sm:flex lg:mt-10"
           >
-            <motion.button
+            <button
               onClick={scrollToWork}
-              className="flex flex-col items-center gap-1.5 cursor-pointer group sm:gap-2"
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              className="scroll-bounce flex flex-col items-center gap-1.5 cursor-pointer group sm:gap-2"
               aria-label="Scroll down"
             >
               <span className="text-xs text-text-tertiary group-hover:text-accent transition-colors sm:text-sm">
                 Scroll to explore
               </span>
               <div className="h-8 w-5 rounded-full border-2 border-accent/30 group-hover:border-accent transition-colors flex justify-center sm:h-10 sm:w-5">
-                <motion.div
-                  className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent sm:mt-2 sm:h-2 sm:w-2"
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                <div
+                  className="scroll-dot mt-1.5 h-1.5 w-1.5 rounded-full bg-accent sm:mt-2 sm:h-2 sm:w-2"
                 />
               </div>
-            </motion.button>
+            </button>
           </motion.div>
         </div>
       </motion.div>

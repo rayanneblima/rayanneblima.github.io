@@ -25,6 +25,14 @@
     "tailwind-merge": "^3.5.0",
     "typescript": "^5.9.3"
   },
+  "browserslist": [
+    "Chrome >= 87",
+    "Firefox >= 78",
+    "Safari >= 14",
+    "Edge >= 88",
+    "not dead",
+    "not op_mini all"
+  ],
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.58.2",

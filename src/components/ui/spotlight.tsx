@@ -26,59 +26,49 @@ export function Spotlight({
   }, []);
 
   useEffect(() => {
+    /* Skip on touch devices — no mouse spotlight needed */
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationFrameId: number;
-    let mouseX = -1000;
-    let mouseY = -1000;
+    let animationFrameId = 0;
+    let mouseActive = false;
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
 
+    const draw = (mx: number, my: number) => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const gradient = ctx.createRadialGradient(mx, my, 0, mx, my, radius);
+      const rgbColor = hexToRgb(color);
+      gradient.addColorStop(0, `rgba(${rgbColor}, ${brightness})`);
+      gradient.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    };
+
     const handleMouseMove = (event: MouseEvent) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
+      if (!mouseActive) mouseActive = true;
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = requestAnimationFrame(() => draw(event.clientX, event.clientY));
     };
 
     const handleMouseLeave = () => {
-      mouseX = -1000;
-      mouseY = -1000;
-    };
-
-    const draw = () => {
+      mouseActive = false;
+      cancelAnimationFrame(animationFrameId);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      if (mouseX !== -1000 && mouseY !== -1000) {
-        const gradient = ctx.createRadialGradient(
-          mouseX,
-          mouseY,
-          0,
-          mouseX,
-          mouseY,
-          radius
-        );
-        const rgbColor = hexToRgb(color);
-        gradient.addColorStop(0, `rgba(${rgbColor}, ${brightness})`);
-        gradient.addColorStop(1, "rgba(0,0,0,0)");
-
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-
-      animationFrameId = requestAnimationFrame(draw);
     };
 
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     window.addEventListener("mouseleave", handleMouseLeave);
-    animationFrameId = requestAnimationFrame(draw);
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);

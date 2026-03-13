@@ -43,11 +43,11 @@ export function Positioning() {
             <motion.span
               key={i}
               className="inline-block"
-              initial={{ opacity: 0, filter: "blur(8px)", y: 16 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={
                 isInView
-                  ? { opacity: 1, filter: "blur(0px)", y: 0 }
-                  : { opacity: 0, filter: "blur(8px)", y: 16 }
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 16 }
               }
               transition={{
                 duration: 0.6,
