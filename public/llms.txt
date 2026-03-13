@@ -1,0 +1,44 @@
+# Rayanne B. Lima — Full Stack Engineer
+
+> Senior Full Stack Engineer with 6+ years of experience in frontend architecture, design systems, and performance-driven engineering. Based in Uba, MG, Brazil. Founder of Pulsatrix Apps. Currently Frontend Lead at Deskbee.
+
+Rayanne Bertolace Lima is a full stack developer and technical leader specializing in Vue.js, Next.js, TypeScript, and Laravel. She leads frontend architecture at Deskbee (SaaS workspace management platform), founded Pulsatrix Apps (digital solutions company since 2018), and created SOS Uba (emergency support platform for flood response in Uba-MG, reaching 2k+ real users).
+
+## Core Expertise
+- Frontend Architecture: scalable component systems, micro-frontends, module federation
+- Design Systems: Storybook, shadcn-vue, Tailwind CSS, accessibility-first (WCAG 2.1 AA)
+- Performance Engineering: Core Web Vitals optimization, lazy loading, code splitting
+- Product Engineering: spec-driven development, discovery to deploy workflows
+- AI-Augmented Development: Claude Code, AI-assisted workflows, prompt engineering
+
+## Tech Stack
+- Frontend: Vue.js, Nuxt.js, Next.js, React, TypeScript, Tailwind CSS
+- Backend: Node.js, Laravel (PHP), Supabase, PostgreSQL
+- Tools: Storybook, Playwright, Vitest, GitHub Actions, Cloudflare Pages/Workers
+- Design: Figma, shadcn-vue/shadcn-ui, Radix primitives
+
+## Education
+- 3 postgraduate degrees in technology
+- IFSEMG — Instituto Federal do Sudeste de Minas Gerais
+- DOCTUM — Rede de Ensino Doctum
+
+## Portfolio
+- [Home (PT-BR)](https://rayanneblima.github.io/pt/): Portfolio principal em portugues
+- [Home (English)](https://rayanneblima.github.io/en/): Portfolio in English
+- [Home (Espanol)](https://rayanneblima.github.io/es/): Portfolio en espanol
+
+## Selected Work
+- [Deskbee](https://deskbee.io): SaaS workspace management — Frontend Lead & Full Stack (2023-present). Led shadcn-vue migration, built 30+ complex features, established design system and accessibility standards.
+- [SOS Uba](https://sosuba.com.br): Emergency support platform for Uba-MG flood response — Founder & Full Stack (2025). Built in 6 hours, 100% serverless on Nuxt 3 + Supabase + Cloudflare, reached 2k+ real users.
+- [Pulsatrix Apps](https://pulsatrixapps.com.br): Digital solutions company — Founder & Full Stack (2018-present). 8+ years delivering 10+ projects with AI-augmented workflows.
+- [Tray](https://tray.com.br): E-commerce platform with 11k+ active merchants — Senior Frontend Dev (2022-2023). Led Vue.js migration, optimized Core Web Vitals, built design system components.
+
+## Contact
+- [Email](mailto:rayanne_lima2010@hotmail.com): rayanne_lima2010@hotmail.com
+- [LinkedIn](https://linkedin.com/in/rayanneblima): Professional profile
+- [GitHub](https://github.com/rayanneblima): Open source and projects
+
+## Optional
+- [Pulsatrix Apps Website](https://pulsatrixapps.com.br): Company website
+- [Resume PT-BR](https://drive.google.com/file/d/1Jp_RSHL_rLUqLN0OK6P_oD6CvZgranp9/view): Curriculo em portugues
+- [Resume EN](https://drive.google.com/file/d/1QNyiWF1OxAg8tkuz4whkYIeO4C8fODBu/view): Resume in English

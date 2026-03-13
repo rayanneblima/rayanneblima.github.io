@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "title": "Rayanne B. Lima — Full Stack Engineer",
+    "description": "Full Stack Engineer sénior especializada en arquitectura frontend, design systems e ingeniería orientada a performance para startups y empresas en crecimiento.",
+    "keywords": "Full Stack Engineer, arquitectura frontend, design systems, performance, vue.js, next.js, typescript, rayanne bertolace lima"
+  },
+  "nav": {
+    "expertise": "Expertise",
+    "work": "Trabajo",
+    "process": "Proceso",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "name1": "Rayanne B. Lima",
+    "name2": "Full Stack Engineer",
+    "headline": "Ingeniería con visión de producto. Código con propósito.",
+    "sub": "Arquitectura frontend, design systems e ingeniería orientada a performance para startups y empresas en crecimiento.",
+    "cta": {
+      "work": "Ver últimas experiencias",
+      "cv": "Descargar currículum",
+      "cvPt": "Currículo em PT-BR",
+      "cvEn": "Resume in English"
+    }
+  },
+  "positioning": {
+    "headline": "El código resuelve problemas. La ingeniería construye negocios.",
+    "caption": "El código es solo la mitad de la entrega."
+  },
+  "expertise": {
+    "label": "Expertise",
+    "items": {
+      "architecture": {
+        "title": "Arquitectura Frontend",
+        "description": "Estructuras escalables construidas para evolución a largo plazo. Vue.js, Next.js y TypeScript con patrones que soportan crecimiento sin romper."
+      },
+      "designSystems": {
+        "title": "Design Systems",
+        "description": "Bibliotecas de componentes que alinean producto e ingeniería. Consistencia, velocidad y un lenguaje compartido entre diseño y código."
+      },
+      "performance": {
+        "title": "Ingeniería de Performance",
+        "description": "Experiencias optimizadas con impacto medible. Cada milisegundo de LCP es una decisión consciente guiada por datos reales."
+      },
+      "product": {
+        "title": "Pensamiento de Producto",
+        "description": "Decisiones técnicas guiadas por estrategia de negocio. Pienso en el usuario y el mercado antes de escribir la primera línea de código."
+      },
+      "aiEngineering": {
+        "title": "Ingeniería con IA",
+        "description": "Spec-driven development, prompts estructurados y revisión humana en cada etapa. La IA acelera la entrega sin generar deuda técnica — porque velocidad sin control es solo retrabajo disfrazado."
+      }
+    }
+  },
+  "work": {
+    "label": "Trabajos Seleccionados",
+    "caseStudy": "Ver case study",
+    "challenge": "Desafío",
+    "impact": "Impacto",
+    "items": {
+      "deskbee": {
+        "name": "Deskbee",
+        "role": "Frontend Lead & Full Stack",
+        "year": "2023 — Presente",
+        "context": "SaaS · Gestión de Espacios de Trabajo",
+        "challenge": "Entré como frontend developer y asumí ownership progresivo de toda la stack. De módulos del producto principal a Room Display para hardware legado, de migración de framework y procesos a landing page con IA — cada entrega expandió mi alcance e impacto dentro de la empresa.",
+        "metrics": {
+          "m1": {
+            "value": "30+",
+            "label": "features complejas"
+          },
+          "m2": {
+            "value": "Shadcn",
+            "label": "migración liderada"
+          },
+          "m3": {
+            "value": "A11y",
+            "label": "accesibilidad"
+          },
+          "m4": {
+            "value": "DS",
+            "label": "design system"
+          }
+        },
+        "technologies": "Vue.js, Quasar, Shadcn, Storybook, Typescript, Laravel, Docker, SonarQube, React, Next.js, Clarity",
+        "previews": {
+          "p1": "Website",
+          "p2": "Panel Admin",
+          "p3": "App Móvil"
+        }
+      },
+      "sosuba": {
+        "name": "SOS Ubá",
+        "role": "Fundadora & Full Stack",
+        "year": "2026",
+        "context": "Plataforma Comunitaria · Apoyo Emergencial Ubá-MG",
+        "challenge": "Centralizar información esencial tras la inundación del 24 de febrero de 2026 en Ubá-MG. Mapa interactivo con puntos de recolección, refugios, vacunación, zonas que necesitan limpieza, empresas con comida solidaria y mucho más.",
+        "metrics": {
+          "m1": {
+            "value": "6h",
+            "label": "de cero a producción"
+          },
+          "m2": {
+            "value": "Nuxt 3",
+            "label": "full stack"
+          },
+          "m3": {
+            "value": "100%",
+            "label": "serverless"
+          },
+          "m4": {
+            "value": "2k+",
+            "label": "usuarios reales"
+          }
+        },
+        "technologies": "Nuxt 3, Vue 3, Supabase, Cloudflare Workers, Tailwind CSS, Clarity, GA4",
+        "previews": {
+          "p1": "Home",
+          "p2": "Mapa Interactivo",
+          "p3": "Servicios"
+        }
+      },
+      "pulsatrix": {
+        "name": "Pulsatrix Apps",
+        "role": "Fundadora & Full Stack",
+        "year": "2018 — Presente",
+        "context": "Empresa Propia · Soluciones Digitales",
+        "challenge": "Entregar soluciones digitales con calidad enterprise para clientes que necesitan resultado sin el overhead de agencias tradicionales.",
+        "metrics": {
+          "m1": {
+            "value": "8+",
+            "label": "años en el mercado"
+          },
+          "m2": {
+            "value": "20+",
+            "label": "proyectos entregados"
+          },
+          "m3": {
+            "value": "AI",
+            "label": "workflow augmented"
+          },
+          "m4": {
+            "value": "E2E",
+            "label": "discovery al deploy"
+          }
+        },
+        "technologies": "Vue.js, Next.js, Supabase, Cloudflare, GA4",
+        "previews": {
+          "p1": "Website",
+          "p2": "Proyectos",
+          "p3": "Proceso"
+        }
+      },
+      "tray": {
+        "name": "Tray",
+        "role": "Dev Frontend Sénior",
+        "year": "2022 — 2023",
+        "context": "E-commerce · Plataforma de Tiendas Virtuales",
+        "challenge": "Plataforma de alta escala necesitando evolución continua en el frontend para soportar miles de comerciantes diariamente.",
+        "metrics": {
+          "m1": {
+            "value": "11k+",
+            "label": "comerciantes activos"
+          },
+          "m2": {
+            "value": "Vue",
+            "label": "migración liderada"
+          },
+          "m3": {
+            "value": "CWV",
+            "label": "Core Web Vitals"
+          },
+          "m4": {
+            "value": "DS",
+            "label": "componentes creados"
+          }
+        },
+        "technologies": "Vue.js, SCSS, Knockout.js, Laravel, GA4",
+        "previews": {
+          "p1": "Website",
+          "p2": "Panel Comerciante",
+          "p3": "Checkout"
+        }
+      }
+    }
+  },
+  "metrics": {
+    "items": {
+      "experience": {
+        "value": "+6",
+        "label": "años de experiencia"
+      },
+      "saas": {
+        "value": "Múltiples",
+        "label": "stacks"
+      },
+      "founder": {
+        "value": "3",
+        "label": "posgrados en el área"
+      },
+      "global": {
+        "value": "Global",
+        "label": "proyectos"
+      }
+    }
+  },
+  "process": {
+    "label": "Proceso",
+    "steps": {
+      "discover": {
+        "title": "Descubrimiento",
+        "description": "Entender el problema, mercado y oportunidad real antes de cualquier decisión técnica."
+      },
+      "architect": {
+        "title": "Arquitectura",
+        "description": "Definir estructura, prioridades y dirección técnica. Cada elección es una decisión de producto."
+      },
+      "build": {
+        "title": "Construcción",
+        "description": "Implementar con foco en calidad, previsibilidad y performance. Velocidad sin atajos."
+      },
+      "optimize": {
+        "title": "Optimización",
+        "description": "Monitoreo y mejora continua orientada por datos. Entregar es solo el comienzo."
+      },
+      "scale": {
+        "title": "Escala",
+        "description": "Preparar sistemas para crecimiento. Componentes, tokens, pipelines y tests que soportan evolución."
+      }
+    }
+  },
+  "finalCta": {
+    "headline1": "Construyamos algo",
+    "headline2": "juntos?",
+    "sub1": "No entrego código por demanda.",
+    "sub2": "Entrego soluciones con contexto, ownership y resultado.",
+    "cta": "Iniciar conversación",
+    "email": "rayanne_lima2010@hotmail.com"
+  },
+  "footer": {
+    "bio": "Ingeniera, emprendedora, problem solver. Construyo soluciones digitales completas — con la urgencia de quien ya estuvo en ambos lados.",
+    "madeWith": "Hecho con",
+    "by": "por",
+    "designed": "Diseñado & desarrollado por",
+    "rights": "Rayanne Bertolace Lima. Todos los derechos reservados."
+  }
+}

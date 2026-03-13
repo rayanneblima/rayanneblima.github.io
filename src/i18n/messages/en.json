@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "title": "Rayanne B. Lima — Full Stack Engineer",
+    "description": "Senior Full Stack Engineer specializing in frontend architecture, design systems and performance-driven engineering for startups and growing companies.",
+    "keywords": "Full Stack Engineer, frontend architect, design systems, performance engineering, vue.js, next.js, typescript, rayanne bertolace lima"
+  },
+  "nav": {
+    "expertise": "Expertise",
+    "work": "Work",
+    "process": "Process",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name1": "Rayanne B. Lima",
+    "name2": "Full Stack Engineer",
+    "headline": "Engineering with product vision. Code with purpose.",
+    "sub": "Frontend architecture, design systems and performance-driven engineering for startups and growing companies.",
+    "cta": {
+      "work": "View latest experience",
+      "cv": "Download resume",
+      "cvPt": "Currículo em PT-BR",
+      "cvEn": "Resume in English"
+    }
+  },
+  "positioning": {
+    "headline": "Code solves problems. Engineering builds businesses.",
+    "caption": "Code is only half of the delivery."
+  },
+  "expertise": {
+    "label": "Core Expertise",
+    "items": {
+      "architecture": {
+        "title": "Frontend Architecture",
+        "description": "Scalable structures built for long-term evolution. Vue.js, Next.js and TypeScript with patterns that sustain growth without breaking."
+      },
+      "designSystems": {
+        "title": "Design Systems",
+        "description": "Component libraries that align product and engineering. Consistency, speed and a shared language between design and code."
+      },
+      "performance": {
+        "title": "Performance Engineering",
+        "description": "Optimized experiences with measurable impact. Every millisecond of LCP is a conscious decision guided by real data."
+      },
+      "product": {
+        "title": "Product Thinking",
+        "description": "Technical decisions guided by business strategy. I think about the user and the market before writing the first line of code."
+      },
+      "aiEngineering": {
+        "title": "AI-Augmented Engineering",
+        "description": "Spec-driven development, structured prompts and human review at every step. AI accelerates delivery without creating tech debt — because speed without control is just rework in disguise."
+      }
+    }
+  },
+  "work": {
+    "label": "Selected Work",
+    "caseStudy": "View case study",
+    "challenge": "Challenge",
+    "impact": "Impact",
+    "items": {
+      "deskbee": {
+        "name": "Deskbee",
+        "role": "Frontend Lead & Full Stack",
+        "year": "2023 — Present",
+        "context": "SaaS · Workspace Management",
+        "challenge": "Joined as a frontend developer and progressively took ownership of the entire stack. From core product modules to Room Display for legacy hardware, from framework migration and processes to an AI-built landing page — each delivery expanded my scope and impact within the company.",
+        "metrics": {
+          "m1": {
+            "value": "30+",
+            "label": "complex features"
+          },
+          "m2": {
+            "value": "Shadcn",
+            "label": "migration led"
+          },
+          "m3": {
+            "value": "A11y",
+            "label": "accessibility"
+          },
+          "m4": {
+            "value": "DS",
+            "label": "design system"
+          }
+        },
+        "technologies": "Vue.js, Quasar, Shadcn, Storybook, Typescript, Laravel, Docker, SonarQube, React, Next.js, Clarity",
+        "previews": {
+          "p1": "Website",
+          "p2": "Admin Panel",
+          "p3": "Mobile App"
+        }
+      },
+      "sosuba": {
+        "name": "SOS Ubá",
+        "role": "Founder & Full Stack",
+        "year": "2026",
+        "context": "Community Platform · Emergency Support Ubá-MG",
+        "challenge": "Centralizing essential information after the February 24, 2026 flood in Ubá-MG. Interactive map with collection points, shelters, vaccination sites, areas needing cleanup, businesses offering solidarity meals and much more.",
+        "metrics": {
+          "m1": {
+            "value": "6h",
+            "label": "zero to live"
+          },
+          "m2": {
+            "value": "Nuxt 3",
+            "label": "full stack"
+          },
+          "m3": {
+            "value": "100%",
+            "label": "serverless"
+          },
+          "m4": {
+            "value": "2k+",
+            "label": "real users"
+          }
+        },
+        "technologies": "Nuxt 3, Vue 3, Supabase, Cloudflare Workers, Tailwind CSS, Clarity, GA4",
+        "previews": {
+          "p1": "Home",
+          "p2": "Interactive Map",
+          "p3": "Services"
+        }
+      },
+      "pulsatrix": {
+        "name": "Pulsatrix Apps",
+        "role": "Founder & Full Stack",
+        "year": "2018 — Present",
+        "context": "Own Company · Digital Solutions",
+        "challenge": "Delivering enterprise-quality digital solutions for clients who need results without the overhead of traditional agencies.",
+        "metrics": {
+          "m1": {
+            "value": "8+",
+            "label": "years in market"
+          },
+          "m2": {
+            "value": "20+",
+            "label": "projects shipped"
+          },
+          "m3": {
+            "value": "AI",
+            "label": "augmented workflow"
+          },
+          "m4": {
+            "value": "E2E",
+            "label": "discovery to deploy"
+          }
+        },
+        "technologies": "Vue.js, Next.js, Supabase, Cloudflare, GA4",
+        "previews": {
+          "p1": "Website",
+          "p2": "Projects",
+          "p3": "Process"
+        }
+      },
+      "tray": {
+        "name": "Tray",
+        "role": "Senior Frontend Dev",
+        "year": "2022 — 2023",
+        "context": "E-commerce · Online Store Platform",
+        "challenge": "High-scale platform needing continuous frontend evolution to support thousands of merchants daily.",
+        "metrics": {
+          "m1": {
+            "value": "11k+",
+            "label": "active merchants"
+          },
+          "m2": {
+            "value": "Vue",
+            "label": "migration led"
+          },
+          "m3": {
+            "value": "CWV",
+            "label": "Core Web Vitals"
+          },
+          "m4": {
+            "value": "DS",
+            "label": "components built"
+          }
+        },
+        "technologies": "Vue.js, SCSS, Knockout.js, Laravel, GA4",
+        "previews": {
+          "p1": "Website",
+          "p2": "Merchant Panel",
+          "p3": "Checkout"
+        }
+      }
+    }
+  },
+  "metrics": {
+    "items": {
+      "experience": {
+        "value": "+6",
+        "label": "years experience"
+      },
+      "saas": {
+        "value": "Multiple",
+        "label": "stacks"
+      },
+      "founder": {
+        "value": "3",
+        "label": "postgrad degrees"
+      },
+      "global": {
+        "value": "Global",
+        "label": "projects"
+      }
+    }
+  },
+  "process": {
+    "label": "Process",
+    "steps": {
+      "discover": {
+        "title": "Discover",
+        "description": "Understand the problem, market and real opportunity before any technical decision."
+      },
+      "architect": {
+        "title": "Architect",
+        "description": "Define structure, priorities and technical direction. Every choice is a product decision."
+      },
+      "build": {
+        "title": "Build",
+        "description": "Implement with focus on quality, predictability and performance. Speed without shortcuts."
+      },
+      "optimize": {
+        "title": "Optimize",
+        "description": "Data-driven monitoring and continuous improvement. Shipping is just the beginning."
+      },
+      "scale": {
+        "title": "Scale",
+        "description": "Prepare systems for growth. Components, tokens, pipelines and tests that sustain evolution."
+      }
+    }
+  },
+  "finalCta": {
+    "headline1": "Let's build something",
+    "headline2": "together?",
+    "sub1": "I don't deliver code on demand.",
+    "sub2": "I deliver solutions with context, ownership, and results.",
+    "cta": "Start a conversation",
+    "email": "rayanne_lima2010@hotmail.com"
+  },
+  "footer": {
+    "bio": "Engineer, entrepreneur, problem solver. I build complete digital solutions — with the urgency of someone who's been on both sides.",
+    "madeWith": "Made with",
+    "by": "by",
+    "designed": "Designed & engineered by",
+    "rights": "Rayanne Bertolace Lima. All rights reserved."
+  }
+}
