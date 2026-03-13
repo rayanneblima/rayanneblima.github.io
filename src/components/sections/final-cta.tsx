@@ -22,7 +22,7 @@ export function FinalCta() {
       <div className="absolute inset-0 bg-bg-raised" aria-hidden="true" />
 
       {/* Retro grid */}
-      <RetroGrid className="opacity-30" />
+      <RetroGrid />
 
       {/* Gradient orb — pulses in once on entry then holds */}
       <motion.div
