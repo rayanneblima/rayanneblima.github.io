@@ -141,8 +141,8 @@ body {
    ═══════════════════════════════════════════════ */
 /* Splash overlay — visible for 2s, fades out over 0.5s */
 @keyframes splash-fade-out {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  0% { opacity: 1; pointer-events: auto; }
+  100% { opacity: 0; pointer-events: none; }
 }
 
 .splash-overlay {
