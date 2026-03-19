@@ -134,7 +134,6 @@ body {
 .animate-marquee-reverse {
   animation: marquee-reverse 40s linear infinite;
 }
-
 /* ═══════════════════════════════════════════════
    Splash screen — pure CSS animations (no JS dependency)
    Removes framer-motion from critical rendering path

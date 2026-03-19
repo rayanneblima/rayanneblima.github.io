@@ -228,6 +228,23 @@
       }
     }
   },
+  "logoCloud": {
+    "label": "Projetos para grandes marcas"
+  },
+  "talks": {
+    "label": "Palestras & Eventos",
+    "viewSlides": "Ver apresentação",
+    "items": {
+      "womenInTech": {
+        "title": "Mulheres na Tecnologia: Construindo carreira, projetos e negócios digitais",
+        "event": "Break the Pattern — IFSEMG Rio Pomba",
+        "date": "Mar 2026",
+        "type": "Talk",
+        "description": "Minha trajetória na área de tecnologia, tanto como desenvolvedora Full Stack quanto fundadora da Pulsatrix Apps. Com mais de 6 anos na área, discuto a importância dos projetos de extensão e pesquisa dentro da faculdade, trabalhos como freelancer, projetos sociais e como a Pulsatrix Apps começou.",
+        "link": "https://www.canva.com/design/DAHEVtbRP-8/MZySrYntvXJrSCiC19oEUQ/view?utm_content=DAHEVtbRP-8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h88c0ae9c79"
+      }
+    }
+  },
   "finalCta": {
     "headline1": "Vamos construir algo",
     "headline2": "juntos?",

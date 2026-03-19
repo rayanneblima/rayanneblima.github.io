@@ -10,6 +10,8 @@ const CoreExpertise = dynamic(() => import("@/components/sections/core-expertise
 const SelectedWork = dynamic(() => import("@/components/sections/selected-work").then(m => ({ default: m.SelectedWork })));
 const Metrics = dynamic(() => import("@/components/sections/metrics").then(m => ({ default: m.Metrics })));
 const Process = dynamic(() => import("@/components/sections/process").then(m => ({ default: m.Process })));
+// const LogoCloud = dynamic(() => import("@/components/sections/logo-cloud").then(m => ({ default: m.LogoCloud })));
+const Talks = dynamic(() => import("@/components/sections/talks").then(m => ({ default: m.Talks })));
 const FinalCta = dynamic(() => import("@/components/sections/final-cta").then(m => ({ default: m.FinalCta })));
 
 export default function HomePage({
@@ -27,8 +29,10 @@ export default function HomePage({
       <Positioning />
       <CoreExpertise />
       <SelectedWork />
+      {/* <LogoCloud /> */}
       <Metrics />
       <Process />
+      <Talks />
       <FinalCta />
     </>
   );
