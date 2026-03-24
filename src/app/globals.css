@@ -41,6 +41,35 @@
   --grid-line-color: rgba(0, 0, 0, 0.12);
 }
 
+/* Logo cloud — grayscale default, original color on hover */
+.logo-cloud-img {
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter 0.5s ease, opacity 0.5s ease;
+}
+
+.group\/logo:hover .logo-cloud-img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* SVG-only logos in dark mode: invert so dark fills become light on dark bg */
+.logo-cloud-svg {
+  filter: grayscale(100%) invert(1);
+}
+
+.group\/logo:hover .logo-cloud-svg {
+  filter: grayscale(0%) invert(0);
+}
+
+.light .logo-cloud-svg {
+  filter: grayscale(100%);
+}
+
+.light .group\/logo:hover .logo-cloud-svg {
+  filter: grayscale(0%);
+}
+
 /* ═══════════════════════════════════════════════ */
 
 html {

@@ -11,3 +11,5 @@
 - [] Enfatizar formaçao e pos graduaçao na area
 - [] Colocar o componente https://21st.dev/Edil-ozi/scroll-velocity/default ou https://21st.dev/efferd/zoom-parallax/default exibindo algumas fotos de projetos
 - [] Talvez um componente assim mostrando as imagens dos trabalhos https://21st.dev/erikx/galaxy-interactive-hero-section/default
+- [] Pagina de links uteis para devs iniciantes
+- [] Blog pessoal e cards de blogs parceiros em que ja postei

@@ -1,6 +1,8 @@
 "use client";
 
+import { useState, useCallback, useEffect } from "react";
 import { useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "framer-motion";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { TextScramble } from "@/components/ui/text-scramble";
 import { TiltCard } from "@/components/ui/tilt-card";
@@ -32,11 +34,90 @@ const typeIcons: Record<string, React.ReactNode> = {
   ),
 };
 
+/** Convert Canva share URL → embeddable URL */
+function toCanvaEmbed(url: string) {
+  try {
+    const u = new URL(url);
+    // strip all tracking params, keep only the design path
+    return `${u.origin}${u.pathname}?embed`;
+  } catch {
+    return url;
+  }
+}
+
 export function Talks() {
   const t = useTranslations("talks");
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  const openPreview = useCallback((url: string) => {
+    setPreviewUrl(toCanvaEmbed(url));
+  }, []);
+
+  const closePreview = useCallback(() => {
+    setPreviewUrl(null);
+  }, []);
+
+  // Close on Escape key
+  useEffect(() => {
+    if (!previewUrl) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closePreview();
+    };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handler);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handler);
+    };
+  }, [previewUrl, closePreview]);
 
   return (
     <section id="talks" className="relative px-6 py-28 sm:py-36 lg:px-10">
+      {/* Presentation preview modal */}
+      <AnimatePresence>
+        {previewUrl && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-8"
+            onClick={closePreview}
+          >
+            {/* Close button */}
+            <button
+              onClick={closePreview}
+              className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 backdrop-blur-sm transition-colors hover:bg-white/20 hover:text-white"
+              aria-label="Close preview"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
+            {/* Iframe container */}
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative h-full w-full max-h-[85vh] max-w-6xl overflow-hidden rounded-xl border border-white/10 bg-black shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <iframe
+                src={previewUrl}
+                title="Presentation preview"
+                className="h-full w-full"
+                allowFullScreen
+                loading="lazy"
+                style={{ border: "none" }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="mx-auto max-w-7xl">
         {/* Section label */}
         <ScrollReveal>
@@ -107,13 +188,12 @@ export function Talks() {
                       {t(`items.${key}.description`)}
                     </p>
 
-                    {/* CTA link */}
+                    {/* CTA button — opens inline preview */}
                     <div className="mt-6">
-                      <a
-                        href={t(`items.${key}.link`)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/link inline-flex items-center gap-2 font-mono text-sm text-accent hover:text-accent-hover transition-colors duration-200"
+                      <button
+                        type="button"
+                        onClick={() => openPreview(t(`items.${key}.link`))}
+                        className="group/link inline-flex items-center gap-2 font-mono text-sm text-accent hover:text-accent-hover transition-colors duration-200 cursor-pointer"
                       >
                         {t("viewSlides")}
                         <svg
@@ -127,11 +207,11 @@ export function Talks() {
                           strokeLinejoin="round"
                           className="transition-transform duration-300 group-hover/link:translate-x-0.5"
                         >
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                          <polyline points="15 3 21 3 21 9" />
-                          <line x1="10" y1="14" x2="21" y2="3" />
+                          <rect x="2" y="3" width="20" height="14" rx="2" />
+                          <polyline points="8 21 16 21" />
+                          <line x1="12" y1="17" x2="12" y2="21" />
                         </svg>
-                      </a>
+                      </button>
                     </div>
 
                     {/* Bottom accent line -- reveals on hover */}
