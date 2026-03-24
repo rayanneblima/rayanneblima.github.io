@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 
 export function ScrollToTop() {
   const [visible, setVisible] = useState(false);
@@ -56,7 +56,7 @@ export function ScrollToTop() {
           stroke="var(--color-line)"
           strokeWidth="2"
         />
-        <motion.circle
+        <m.circle
           cx="22"
           cy="22"
           r={radius}

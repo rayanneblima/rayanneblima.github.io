@@ -12,6 +12,7 @@ import { SplashScreen } from "@/components/ui/splash-screen";
 import { LenisProvider } from "@/components/ui/lenis-provider";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { AnimatedFavicon } from "@/components/ui/animated-favicon";
+import { FramerProvider } from "@/components/shared/framer-provider";
 import "@/app/globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -114,6 +115,7 @@ export default async function LocaleLayout({
       lang={langMap[locale] || locale}
       className={`${spaceGrotesk.variable} ${outfit.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
       <head>
         <link rel="preload" as="image" href="/images/rayanne-hero.webp" fetchPriority="high" />
@@ -140,8 +142,9 @@ export default async function LocaleLayout({
         <CustomCursor />
         <AnimatedFavicon />
         <Spotlight radius={350} brightness={0.06} color="#8B70FF" />
-        <ScrollToTop />
         <NextIntlClientProvider messages={messages}>
+          <FramerProvider>
+          <ScrollToTop />
           <ThemeProvider>
             <LenisProvider>
               <Header />
@@ -149,6 +152,7 @@ export default async function LocaleLayout({
               <Footer />
             </LenisProvider>
           </ThemeProvider>
+          </FramerProvider>
         </NextIntlClientProvider>
       </body>
     </html>

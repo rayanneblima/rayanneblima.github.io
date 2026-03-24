@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { RetroGrid } from "@/components/ui/retro-grid";
@@ -25,7 +25,7 @@ export function FinalCta() {
       <RetroGrid />
 
       {/* Gradient orb — pulses in once on entry then holds */}
-      <motion.div
+      <m.div
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full blur-[180px]"
         style={{
           background:

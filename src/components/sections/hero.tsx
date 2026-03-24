@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useRef, useState, useEffect, useCallback } from "react";
-import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
+import { m, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { TextScramble } from "@/components/ui/text-scramble";
 
@@ -170,7 +170,7 @@ function CvDropdown({ t }: { t: ReturnType<typeof useTranslations<"hero">> }) {
         </svg>
         {t("cta.cv")}
         {/* Chevron */}
-        <motion.svg
+        <m.svg
           width="14"
           height="14"
           viewBox="0 0 24 24"
@@ -183,12 +183,12 @@ function CvDropdown({ t }: { t: ReturnType<typeof useTranslations<"hero">> }) {
           transition={{ duration: 0.2 }}
         >
           <polyline points="6 9 12 15 18 9" />
-        </motion.svg>
+        </m.svg>
       </button>
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 8, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.95 }}
@@ -232,7 +232,7 @@ function CvDropdown({ t }: { t: ReturnType<typeof useTranslations<"hero">> }) {
                 <span className="text-xs text-text-tertiary">PDF &middot; English</span>
               </span>
             </a>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>
@@ -310,7 +310,7 @@ export function Hero() {
       />
 
       {/* ─── Gradient orbs ─── */}
-      <motion.div className="absolute inset-0 z-0 overflow-hidden pointer-events-none" style={{ y: orbY }}>
+      <m.div className="absolute inset-0 z-0 overflow-hidden pointer-events-none" style={{ y: orbY }}>
         <GradientOrb
           size="600px"
           gradient="radial-gradient(circle, #7C5DFA 0%, transparent 70%)"
@@ -332,7 +332,7 @@ export function Hero() {
           left="30%"
           animDelay={2}
         />
-      </motion.div>
+      </m.div>
 
       {/* ─── Particles ─── */}
       <div className="absolute inset-0 z-10 pointer-events-none">
@@ -342,11 +342,11 @@ export function Hero() {
       </div>
 
       {/* ─── Collaborative cursor tags (above vignette, fades with hero) ─── */}
-      <motion.div className="absolute inset-0 z-40 pointer-events-none overflow-hidden" style={{ opacity }}>
+      <m.div className="absolute inset-0 z-40 pointer-events-none overflow-hidden" style={{ opacity }}>
         {cursorTags.map((tag) => (
           <CursorTag key={tag.label} label={tag.label} color={tag.color} x={tag.x} y={tag.y} delay={tag.delay} side={tag.side} driftIndex={tag.driftIndex} />
         ))}
-      </motion.div>
+      </m.div>
 
       {/* ─── Noise texture ─── */}
       <div
@@ -360,7 +360,7 @@ export function Hero() {
       />
 
       {/* ─── Main content (centered) ─── */}
-      <motion.div
+      <m.div
         className="relative z-20 flex min-h-svh flex-col items-center justify-center px-4 pt-16 pb-4 sm:px-6 sm:pt-20 sm:pb-10 lg:px-8"
         style={{ y: smoothY, opacity, scale }}
       >
@@ -373,8 +373,7 @@ export function Hero() {
                 alt="Rayanne B. Lima"
                 width={80}
                 height={80}
-                // @ts-expect-error -- fetchPriority is valid HTML
-                fetchpriority="high"
+                fetchPriority="high"
                 className="h-20 w-20 rounded-full object-cover ring-2 ring-accent/30 ring-offset-4 ring-offset-bg"
               />
               {/* Glow behind avatar */}
@@ -428,13 +427,9 @@ export function Hero() {
             {t("sub")}
           </p>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.0 }}
-            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
-          >
+          {/* CTA Buttons — CSS animation to avoid hydration flash */}
+          <div className="hero-cta flex flex-col items-center justify-center gap-4 sm:flex-row">
+
             <MagneticButton
               as="a"
               href="#work"
@@ -461,15 +456,11 @@ export function Hero() {
             </MagneticButton>
 
             <CvDropdown t={t} />
-          </motion.div>
+          </div>
 
-          {/* Social links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.2 }}
-            className="mt-5 flex items-center justify-center gap-5 sm:mt-10 lg:mt-14"
-          >
+          {/* Social links — CSS animation */}
+          <div className="hero-social mt-5 flex items-center justify-center gap-5 sm:mt-10 lg:mt-14">
+
             {[
               {
                 href: "mailto:rayanne_lima2010@hotmail.com",
@@ -514,7 +505,7 @@ export function Hero() {
                 ),
               },
             ].map((social) => (
-              <motion.a
+              <m.a
                 key={social.label}
                 href={social.href}
                 target={social.external ? "_blank" : undefined}
@@ -525,17 +516,13 @@ export function Hero() {
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-accent/40 bg-accent/10 text-accent/80 backdrop-blur-sm transition-colors hover:border-accent hover:bg-accent/20 hover:text-accent sm:h-12 sm:w-12"
               >
                 {social.icon}
-              </motion.a>
+              </m.a>
             ))}
-          </motion.div>
+          </div>
 
-          {/* Scroll indicator (in flow, not absolute) — CSS animations */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 3.5 }}
-            className="mt-4 hidden justify-center sm:mt-8 sm:flex lg:mt-10"
-          >
+          {/* Scroll indicator — CSS animation */}
+          <div className="hero-scroll mt-4 hidden justify-center sm:mt-8 sm:flex lg:mt-10">
+
             <button
               onClick={scrollToWork}
               className="scroll-bounce flex flex-col items-center gap-1.5 cursor-pointer group sm:gap-2"
@@ -550,9 +537,9 @@ export function Hero() {
                 />
               </div>
             </button>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* ─── Vignette effect ─── */}
       <div

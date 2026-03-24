@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { TextScramble } from "@/components/ui/text-scramble";
 import { TiltCard } from "@/components/ui/tilt-card";
@@ -76,7 +76,7 @@ export function Talks() {
       {/* Presentation preview modal */}
       <AnimatePresence>
         {previewUrl && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -97,7 +97,7 @@ export function Talks() {
             </button>
 
             {/* Iframe container */}
-            <motion.div
+            <m.div
               initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.92, opacity: 0 }}
@@ -113,8 +113,8 @@ export function Talks() {
                 loading="lazy"
                 style={{ border: "none" }}
               />
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
 

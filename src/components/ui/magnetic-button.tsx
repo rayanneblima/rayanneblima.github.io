@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -34,11 +34,11 @@ export function MagneticButton({
     setPosition({ x: 0, y: 0 });
   };
 
-  // Use motion.div as wrapper to avoid ref type issues with dynamic elements
+  // Use m.div as wrapper to avoid ref type issues with dynamic elements
   const Tag = as;
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -50,6 +50,6 @@ export function MagneticButton({
       <Tag className={className} {...props}>
         {children}
       </Tag>
-    </motion.div>
+    </m.div>
   );
 }

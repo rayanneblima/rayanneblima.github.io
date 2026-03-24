@@ -253,6 +253,18 @@
     "cta": "Start a conversation",
     "email": "rayanne_lima2010@hotmail.com"
   },
+  "devTools": {
+    "label": "Dev Tools",
+    "title": "Resources for Devs",
+    "description": "A curated collection of tools, courses, platforms and references I recommend for anyone getting started in development. All free or with a free tier.",
+    "back": "Back to portfolio",
+    "searchPlaceholder": "Search tool, course, platform...",
+    "all": "All",
+    "favorites": "Favorites",
+    "results": "resources found",
+    "noResults": "No resources found",
+    "noResultsHint": "Try a different search term or remove filters"
+  },
   "footer": {
     "bio": "Engineer, entrepreneur, problem solver. I build complete digital solutions — with the urgency of someone who's been on both sides.",
     "madeWith": "Made with",

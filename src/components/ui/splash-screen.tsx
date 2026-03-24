@@ -47,10 +47,11 @@ export function SplashScreen() {
         <div className="absolute bottom-8 right-8 w-10 h-10 border-r border-b border-line" />
       </div>
 
-      {/* Remove splash from DOM after CSS animation ends */}
+      {/* Hide splash after CSS fade-out — never remove() to avoid React DOM conflicts */}
       <script
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: `setTimeout(function(){var s=document.getElementById('splash');if(s)s.remove()},2600)`,
+          __html: `setTimeout(function(){var s=document.getElementById('splash');if(s){s.style.display='none';s.style.pointerEvents='none'}},2600)`,
         }}
       />
     </>

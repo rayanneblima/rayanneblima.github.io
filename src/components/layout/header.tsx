@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { m, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
 import { useTheme } from "@/components/shared/theme-provider";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
+import { Link, usePathname } from "@/i18n/navigation";
 
 const navItems = ["expertise", "work", "process", "contact"] as const;
 
@@ -23,7 +24,7 @@ function NavLinkAnimated({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.a
+    <m.a
       href={href}
       className={cn(
         "relative px-4 py-2 text-sm font-medium transition-colors overflow-hidden",
@@ -45,7 +46,7 @@ function NavLinkAnimated({
       </span>
 
       {/* Hover background glow */}
-      <motion.div
+      <m.div
         className="absolute inset-0 rounded-full z-0"
         initial={false}
         animate={{ opacity: hovered ? 0.08 : 0, scale: hovered ? 1 : 0.8 }}
@@ -54,14 +55,14 @@ function NavLinkAnimated({
       />
 
       {/* Bottom accent line */}
-      <motion.div
+      <m.div
         className="absolute bottom-0 left-2 right-2 h-px rounded-full bg-accent"
         initial={false}
         animate={{ scaleX: hovered || isActive ? 1 : 0 }}
         transition={{ duration: 0.25 }}
         style={{ originX: 0 }}
       />
-    </motion.a>
+    </m.a>
   );
 }
 
@@ -70,6 +71,8 @@ export function Header() {
   const t = useTranslations("nav");
   const { theme, toggleTheme } = useTheme();
   const activeSection = useScrollSpy();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -112,36 +115,61 @@ export function Header() {
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
           {/* Logo */}
-          <a
-            href="#hero"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300"
-          >
-            <img
-              src="/images/logo-icon.webp"
-              alt="R"
-              width={28}
-              height={28}
-              className="h-7 w-7"
-            />
-            <span className="font-display text-sm font-bold tracking-tight hidden sm:inline">
-              rayanne<span className="text-accent">blima</span>
-            </span>
-          </a>
+          {isHome ? (
+            <a
+              href="#hero"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300"
+            >
+              <img src="/images/logo-icon.webp" alt="R" width={28} height={28} className="h-7 w-7" />
+              <span className="font-display text-sm font-bold tracking-tight hidden sm:inline">
+                rayanne<span className="text-accent">blima</span>
+              </span>
+            </a>
+          ) : (
+            <Link
+              href="/"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300"
+            >
+              <img src="/images/logo-icon.webp" alt="R" width={28} height={28} className="h-7 w-7" />
+              <span className="font-display text-sm font-bold tracking-tight hidden sm:inline">
+                rayanne<span className="text-accent">blima</span>
+              </span>
+            </Link>
+          )}
 
           {/* Nav */}
           <nav className="hidden md:flex items-center gap-0.5" aria-label="Main">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item}`}
-                className={cn(
-                  "relative px-3 py-1.5 text-xs font-medium tracking-wide uppercase transition-colors duration-300",
-                  activeSection === item ? "text-accent" : "text-text-secondary hover:text-text"
-                )}
-              >
-                {t(item)}
-              </a>
-            ))}
+            {navItems.map((item) =>
+              isHome ? (
+                <a
+                  key={item}
+                  href={`#${item}`}
+                  className={cn(
+                    "relative px-3 py-1.5 text-xs font-medium tracking-wide uppercase transition-colors duration-300",
+                    activeSection === item ? "text-accent" : "text-text-secondary hover:text-text"
+                  )}
+                >
+                  {t(item)}
+                </a>
+              ) : (
+                <Link
+                  key={item}
+                  href={`/#${item}`}
+                  className="relative px-3 py-1.5 text-xs font-medium tracking-wide uppercase transition-colors duration-300 text-text-secondary hover:text-text"
+                >
+                  {t(item)}
+                </Link>
+              )
+            )}
+            <Link
+              href="/dev-tools"
+              className={cn(
+                "relative px-3 py-1.5 text-xs font-medium tracking-wide uppercase transition-colors duration-300",
+                !isHome ? "text-accent" : "text-text-secondary hover:text-accent"
+              )}
+            >
+              Dev Tools
+            </Link>
           </nav>
 
           {/* Actions */}
@@ -176,7 +204,7 @@ export function Header() {
       {/* ═══ FLOATING PILL HEADER (visible when scrolled) ═══ */}
       <AnimatePresence>
         {scrolled && !mobileOpen && (
-          <motion.nav
+          <m.nav
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -195,7 +223,7 @@ export function Header() {
               <div
                 className="absolute bottom-0 left-4 right-4 h-0.5 rounded-full overflow-hidden"
               >
-                <motion.div
+                <m.div
                   className="h-full rounded-full bg-linear-to-r from-accent to-accent-hover"
                   style={{ width: progressWidth }}
                 />
@@ -203,33 +231,60 @@ export function Header() {
 
               <div className="flex items-center justify-between px-5 py-3">
                 {/* Logo */}
-                <a
-                  href="#hero"
-                  className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300"
-                >
-                  <img
-                    src="/images/logo-icon.webp"
-                    alt="R"
-                    width={24}
-                    height={24}
-                    className="h-6 w-6"
-                  />
-                  <span className="font-display text-sm font-bold tracking-tight hidden sm:inline">
-                    rayanne<span className="text-accent">blima</span>
-                  </span>
-                </a>
+                {isHome ? (
+                  <a
+                    href="#hero"
+                    className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300"
+                  >
+                    <img src="/images/logo-icon.webp" alt="R" width={24} height={24} className="h-6 w-6" />
+                    <span className="font-display text-sm font-bold tracking-tight hidden sm:inline">
+                      rayanne<span className="text-accent">blima</span>
+                    </span>
+                  </a>
+                ) : (
+                  <Link
+                    href="/"
+                    className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300"
+                  >
+                    <img src="/images/logo-icon.webp" alt="R" width={24} height={24} className="h-6 w-6" />
+                    <span className="font-display text-sm font-bold tracking-tight hidden sm:inline">
+                      rayanne<span className="text-accent">blima</span>
+                    </span>
+                  </Link>
+                )}
 
                 {/* Nav links with animated hover */}
                 <div className="hidden md:flex items-center gap-0.5">
-                  {navItems.map((item) => (
-                    <NavLinkAnimated
-                      key={item}
-                      href={`#${item}`}
-                      isActive={activeSection === item}
-                    >
-                      {t(item)}
-                    </NavLinkAnimated>
-                  ))}
+                  {isHome ? (
+                    navItems.map((item) => (
+                      <NavLinkAnimated
+                        key={item}
+                        href={`#${item}`}
+                        isActive={activeSection === item}
+                      >
+                        {t(item)}
+                      </NavLinkAnimated>
+                    ))
+                  ) : (
+                    navItems.map((item) => (
+                      <Link
+                        key={item}
+                        href={`/#${item}`}
+                        className="relative px-4 py-2 text-sm font-medium text-text-secondary hover:text-text transition-colors"
+                      >
+                        {t(item)}
+                      </Link>
+                    ))
+                  )}
+                  <Link
+                    href="/dev-tools"
+                    className={cn(
+                      "relative px-4 py-2 text-sm font-medium transition-colors",
+                      !isHome ? "text-accent" : "text-text-secondary hover:text-accent"
+                    )}
+                  >
+                    Dev Tools
+                  </Link>
                 </div>
 
                 {/* Actions */}
@@ -247,7 +302,7 @@ export function Header() {
                     )}
                   </button>
                   {/* Mobile menu button */}
-                  <motion.button
+                  <m.button
                     className="flex md:hidden h-8 w-8 items-center justify-center text-text-secondary hover:text-text transition-colors cursor-pointer"
                     onClick={() => setMobileOpen(true)}
                     whileTap={{ scale: 0.9 }}
@@ -257,18 +312,18 @@ export function Header() {
                       <line x1="4" y1="8" x2="20" y2="8" />
                       <line x1="4" y1="16" x2="20" y2="16" />
                     </svg>
-                  </motion.button>
+                  </m.button>
                 </div>
               </div>
             </div>
-          </motion.nav>
+          </m.nav>
         )}
       </AnimatePresence>
 
       {/* ═══ FULLSCREEN MOBILE MENU ═══ */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <m.div
             initial="closed"
             animate="open"
             exit="closed"
@@ -282,14 +337,14 @@ export function Header() {
           >
             {/* Close button */}
             <div className="absolute top-5 right-6">
-              <motion.button
+              <m.button
                 className="flex h-10 w-10 items-center justify-center text-text-secondary hover:text-text transition-colors cursor-pointer"
                 onClick={() => setMobileOpen(false)}
                 whileTap={{ scale: 0.9 }}
                 aria-label="Close menu"
               >
                 <AnimatePresence mode="wait">
-                  <motion.div
+                  <m.div
                     key="close"
                     initial={{ rotate: -90, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
@@ -300,46 +355,69 @@ export function Header() {
                       <line x1="18" y1="6" x2="6" y2="18" />
                       <line x1="6" y1="6" x2="18" y2="18" />
                     </svg>
-                  </motion.div>
+                  </m.div>
                 </AnimatePresence>
-              </motion.button>
+              </m.button>
             </div>
 
             {/* Links */}
             <div className="flex flex-col items-start justify-center h-full gap-8 px-10">
-              {navItems.map((item) => (
-                <motion.a
-                  key={item}
-                  href={`#${item}`}
-                  variants={linkVariants}
-                  className="group relative text-5xl font-display font-bold tracking-tight text-text-secondary hover:text-text transition-colors"
+              {navItems.map((item) =>
+                isHome ? (
+                  <m.a
+                    key={item}
+                    href={`#${item}`}
+                    variants={linkVariants}
+                    className="group relative text-5xl font-display font-bold tracking-tight text-text-secondary hover:text-text transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                    whileHover={{ x: 10 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span className="relative z-10">{t(item)}</span>
+                    <m.div
+                      className="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
+                  </m.a>
+                ) : (
+                  <m.div key={item} variants={linkVariants}>
+                    <Link
+                      href={`/#${item}`}
+                      className="group relative text-5xl font-display font-bold tracking-tight text-text-secondary hover:text-text transition-colors"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {t(item)}
+                    </Link>
+                  </m.div>
+                )
+              )}
+              <m.div variants={linkVariants}>
+                <Link
+                  href="/dev-tools"
+                  className={cn(
+                    "group relative text-5xl font-display font-bold tracking-tight transition-colors",
+                    !isHome ? "text-accent" : "text-text-secondary hover:text-accent"
+                  )}
                   onClick={() => setMobileOpen(false)}
-                  whileHover={{ x: 10 }}
-                  whileTap={{ scale: 0.95 }}
                 >
-                  <span className="relative z-10">{t(item)}</span>
-                  {/* Accent dot on hover */}
-                  <motion.div
-                    className="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity"
-                  />
-                </motion.a>
-              ))}
+                  Dev Tools
+                </Link>
+              </m.div>
             </div>
 
             {/* Decorative orbs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <motion.div
+              <m.div
                 className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-accent opacity-10 blur-[100px]"
                 animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.15, 0.1] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
-              <motion.div
+              <m.div
                 className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-accent opacity-10 blur-[100px]"
                 animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.1, 0.15] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

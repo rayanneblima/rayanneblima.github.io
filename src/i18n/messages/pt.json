@@ -253,6 +253,18 @@
     "cta": "Iniciar conversa",
     "email": "rayanne_lima2010@hotmail.com"
   },
+  "devTools": {
+    "label": "Dev Tools",
+    "title": "Recursos para Devs",
+    "description": "Uma curadoria de ferramentas, cursos, plataformas e referências que eu recomendo para quem está começando na área de desenvolvimento. Tudo gratuito ou com versão free.",
+    "back": "Voltar ao portfólio",
+    "searchPlaceholder": "Buscar ferramenta, curso, plataforma...",
+    "all": "Todos",
+    "favorites": "Favoritos",
+    "results": "recursos encontrados",
+    "noResults": "Nenhum recurso encontrado",
+    "noResultsHint": "Tente buscar por outro termo ou remova os filtros"
+  },
   "footer": {
     "bio": "Engenheira, empreendedora, problem solver. Construo soluções digitais completas — com a urgência de quem já esteve dos dois lados.",
     "madeWith": "Feito com",

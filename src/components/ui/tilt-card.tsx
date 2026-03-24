@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface TiltCardProps {
   children: React.ReactNode;
@@ -39,7 +39,7 @@ export function TiltCard({
   };
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -57,6 +57,6 @@ export function TiltCard({
           }}
         />
       )}
-    </motion.div>
+    </m.div>
   );
 }

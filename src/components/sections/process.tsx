@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { TextScramble } from "@/components/ui/text-scramble";
 
@@ -54,7 +54,7 @@ export function Process() {
             aria-hidden="true"
           />
           {/* Accent fill — grows with scroll progress */}
-          <motion.div
+          <m.div
             className="hidden lg:block absolute top-[6px] left-0 h-px bg-accent origin-left"
             style={{ width: fillWidth }}
             aria-hidden="true"
@@ -66,7 +66,7 @@ export function Process() {
             aria-hidden="true"
           />
           {/* Accent fill — grows with scroll progress (vertical) */}
-          <motion.div
+          <m.div
             className="lg:hidden absolute left-[5px] top-0 w-px bg-accent origin-top"
             style={{ height: fillHeight }}
             aria-hidden="true"
@@ -78,7 +78,7 @@ export function Process() {
               <ScrollReveal key={key} delay={0.1 * i}>
                 <div className="relative pl-8 lg:pl-0">
                   {/* Dot — mobile: absolute left, desktop: static top */}
-                  <motion.div
+                  <m.div
                     className="absolute left-0 top-0 lg:relative lg:mb-6 h-3 w-3 rounded-full bg-accent z-10"
                     style={{ scale: dotScales[i] }}
                     transition={{

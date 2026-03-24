@@ -4,12 +4,12 @@
 - [X] Ajustar scroll to explore
 - [X] Ajustar card 3 de expertise
 - [] Ajustar textos e imagens dos trabalhos
-- [] Incluir icones nas stacks dos trabalhos
+- [X] Incluir icones nas stacks dos trabalhos
 - [X] Botao de baixar curriculo
-- [] Incluir clientes finais afetados
+- [X] Incluir clientes finais afetados
 - [] Colocar esse componente https://21st.dev/aceternity/timeline/default nos trabalhos
 - [] Enfatizar formaçao e pos graduaçao na area
 - [] Colocar o componente https://21st.dev/Edil-ozi/scroll-velocity/default ou https://21st.dev/efferd/zoom-parallax/default exibindo algumas fotos de projetos
 - [] Talvez um componente assim mostrando as imagens dos trabalhos https://21st.dev/erikx/galaxy-interactive-hero-section/default
-- [] Pagina de links uteis para devs iniciantes
+- [X] Pagina de links uteis para devs iniciantes
 - [] Blog pessoal e cards de blogs parceiros em que ja postei

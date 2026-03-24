@@ -2,7 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { m, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { TextScramble } from "@/components/ui/text-scramble";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
@@ -36,9 +36,9 @@ function ParallaxPreview({ children }: { children: React.ReactNode }) {
   const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <motion.div ref={ref} style={{ y }} className="flex items-center justify-center">
+    <m.div ref={ref} style={{ y }} className="flex items-center justify-center">
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -100,7 +100,7 @@ function ProjectPreview({ projectKey, labels }: { projectKey: string; labels: st
       {/* Browser viewport — carousel */}
       <div className="relative rounded-b-xl border border-t-0 border-line/60 overflow-hidden aspect-16/10">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
-          <motion.img
+          <m.img
             key={current}
             src={slides[current]?.src}
             alt={slides[current]?.label}

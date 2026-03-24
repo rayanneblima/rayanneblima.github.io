@@ -1,0 +1,1117 @@
+export type DifficultyLevel = "iniciante" | "intermediario" | "avancado";
+
+export type CategoryKey =
+  | "interactive"
+  | "courses"
+  | "platforms"
+  | "tools"
+  | "design"
+  | "components"
+  | "references";
+
+export type DevResource = {
+  id: string;
+  name: string;
+  url: string;
+  description: {
+    pt: string;
+    en: string;
+    es: string;
+  };
+  category: CategoryKey;
+  level: DifficultyLevel;
+  /** Optional tags for search (invisible, aids filtering) */
+  tags?: string[];
+};
+
+export const categories: Record<
+  CategoryKey,
+  { pt: string; en: string; es: string; icon: string }
+> = {
+  interactive: {
+    pt: "Aprendizado Interativo",
+    en: "Interactive Learning",
+    es: "Aprendizaje Interactivo",
+    icon: "gamepad-2",
+  },
+  courses: {
+    pt: "Cursos Gratuitos",
+    en: "Free Courses",
+    es: "Cursos Gratuitos",
+    icon: "graduation-cap",
+  },
+  platforms: {
+    pt: "Plataformas de Estudo",
+    en: "Learning Platforms",
+    es: "Plataformas de Estudio",
+    icon: "book-open",
+  },
+  tools: {
+    pt: "Ferramentas de Dev",
+    en: "Dev Tools",
+    es: "Herramientas Dev",
+    icon: "wrench",
+  },
+  design: {
+    pt: "Design & Cores",
+    en: "Design & Colors",
+    es: "Diseño & Colores",
+    icon: "palette",
+  },
+  components: {
+    pt: "Bibliotecas de Componentes",
+    en: "Component Libraries",
+    es: "Bibliotecas de Componentes",
+    icon: "layout-grid",
+  },
+  references: {
+    pt: "Referências & Docs",
+    en: "References & Docs",
+    es: "Referencias & Docs",
+    icon: "file-text",
+  },
+};
+
+export const resources: DevResource[] = [
+  /* ═══════════════════════════════════════
+     APRENDIZADO INTERATIVO
+     ═══════════════════════════════════════ */
+  {
+    id: "flexbox-froggy",
+    name: "Flexbox Froggy",
+    url: "https://flexboxfroggy.com/",
+    description: {
+      pt: "Jogo interativo para aprender CSS Flexbox posicionando sapos",
+      en: "Interactive game to learn CSS Flexbox by positioning frogs",
+      es: "Juego interactivo para aprender CSS Flexbox posicionando ranas",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["css", "flexbox", "game"],
+  },
+  {
+    id: "css-grid-garden",
+    name: "CSS Grid Garden",
+    url: "https://cssgridgarden.com/",
+    description: {
+      pt: "Jogo para aprender CSS Grid cuidando de um jardim virtual",
+      en: "Game to learn CSS Grid by tending a virtual garden",
+      es: "Juego para aprender CSS Grid cuidando un jardín virtual",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["css", "grid", "game"],
+  },
+  {
+    id: "frontend-mentor",
+    name: "Frontend Mentor",
+    url: "https://www.frontendmentor.io/",
+    description: {
+      pt: "Desafios de frontend com designs profissionais para praticar",
+      en: "Frontend challenges with professional designs for practice",
+      es: "Desafíos frontend con diseños profesionales para practicar",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["challenges", "html", "css", "js"],
+  },
+  {
+    id: "devchallenge",
+    name: "DevChallenge",
+    url: "https://devchallenge.com.br/challenges",
+    description: {
+      pt: "Desafios de desenvolvimento em português brasileiro",
+      en: "Development challenges in Brazilian Portuguese",
+      es: "Desafíos de desarrollo en portugués brasileño",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["challenges", "pt-br"],
+  },
+  {
+    id: "exercism-js",
+    name: "Exercism JavaScript",
+    url: "https://exercism.org/tracks/javascript/",
+    description: {
+      pt: "Exercícios práticos de JavaScript com mentoria da comunidade",
+      en: "Hands-on JavaScript exercises with community mentorship",
+      es: "Ejercicios prácticos de JavaScript con mentoría comunitaria",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["javascript", "exercises", "mentoring"],
+  },
+  {
+    id: "frontend-practice",
+    name: "Frontend Practice",
+    url: "https://www.frontendpractice.com/projects",
+    description: {
+      pt: "Recrie sites reais famosos e aprenda na prática",
+      en: "Recreate famous real websites and learn by doing",
+      es: "Recrea sitios web famosos reales y aprende practicando",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["challenges", "clone", "practice"],
+  },
+  {
+    id: "app-ideas",
+    name: "App Ideas Collection",
+    url: "https://github.com/florinpop17/app-ideas",
+    description: {
+      pt: "Lista de ideias de projetos organizadas por nível de dificuldade",
+      en: "Project ideas list organized by difficulty level",
+      es: "Lista de ideas de proyectos organizada por nivel de dificultad",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["projects", "ideas", "github"],
+  },
+  {
+    id: "1-line-layouts",
+    name: "1-Line Layouts",
+    url: "https://1linelayouts.glitch.me/",
+    description: {
+      pt: "10 layouts CSS modernos com apenas uma linha de código cada",
+      en: "10 modern CSS layouts in just one line of code each",
+      es: "10 layouts CSS modernos en una sola línea de código",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["css", "layouts", "minimal"],
+  },
+  {
+    id: "css-diner",
+    name: "CSS Diner",
+    url: "https://flukeout.github.io/",
+    description: {
+      pt: "Jogo interativo para aprender seletores CSS resolvendo puzzles",
+      en: "Interactive game to learn CSS selectors by solving puzzles",
+      es: "Juego interactivo para aprender selectores CSS resolviendo puzzles",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["css", "selectors", "game"],
+  },
+  {
+    id: "codecombat",
+    name: "CodeCombat",
+    url: "https://codecombat.com/",
+    description: {
+      pt: "Aprenda Python e JavaScript jogando um RPG de aventura",
+      en: "Learn Python and JavaScript by playing an adventure RPG",
+      es: "Aprende Python y JavaScript jugando un RPG de aventura",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["python", "javascript", "rpg", "game"],
+  },
+  {
+    id: "codedex",
+    name: "Codédex",
+    url: "https://www.codedex.io/",
+    description: {
+      pt: "Jornada gamificada de programação com XP, badges e mundos",
+      en: "Gamified coding journey with XP, badges and worlds",
+      es: "Viaje gamificado de programación con XP, insignias y mundos",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["gamified", "python", "html", "css", "js"],
+  },
+  {
+    id: "codingame",
+    name: "CodinGame",
+    url: "https://www.codingame.com/start/",
+    description: {
+      pt: "Resolva desafios de programação jogando e criando bots de IA",
+      en: "Solve coding challenges by playing games and creating AI bots",
+      es: "Resuelve desafíos de programación jugando y creando bots de IA",
+    },
+    category: "interactive",
+    level: "intermediario",
+    tags: ["challenges", "ai", "bots", "game"],
+  },
+  {
+    id: "codepip",
+    name: "Codepip",
+    url: "https://codepip.com/",
+    description: {
+      pt: "Jogos de desenvolvimento web para aprender HTML, CSS e JS",
+      en: "Web development games to learn HTML, CSS and JS",
+      es: "Juegos de desarrollo web para aprender HTML, CSS y JS",
+    },
+    category: "interactive",
+    level: "iniciante",
+    tags: ["html", "css", "js", "game"],
+  },
+  {
+    id: "checkio",
+    name: "CheckiO",
+    url: "https://checkio.org/",
+    description: {
+      pt: "Desafios de programação colaborativos com amigos em formato de jogo",
+      en: "Collaborative coding challenges with friends in game format",
+      es: "Desafíos de programación colaborativos con amigos en formato de juego",
+    },
+    category: "interactive",
+    level: "intermediario",
+    tags: ["python", "javascript", "challenges", "social"],
+  },
+
+  /* ═══════════════════════════════════════
+     CURSOS GRATUITOS
+     ═══════════════════════════════════════ */
+  {
+    id: "logica-python-devaprender",
+    name: "Lógica de Programação — DevAprender",
+    url: "https://www.youtube.com/watch?v=iF2MdbrTiBM",
+    description: {
+      pt: "Curso completo de lógica de programação com Python",
+      en: "Complete programming logic course with Python",
+      es: "Curso completo de lógica de programación con Python",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["python", "logic", "youtube", "pt-br"],
+  },
+  {
+    id: "logica-python-cursoemvideo",
+    name: "Lógica com Python — Curso em Vídeo",
+    url: "https://www.youtube.com/watch?v=8mei6uVttho&list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV",
+    description: {
+      pt: "Playlist completa de lógica com Python pelo Gustavo Guanabara",
+      en: "Complete Python logic playlist by Gustavo Guanabara",
+      es: "Playlist completa de lógica con Python por Gustavo Guanabara",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["python", "logic", "youtube", "pt-br"],
+  },
+  {
+    id: "logica-js-neitzke",
+    name: "Lógica com JS — Gustavo Neitzke",
+    url: "https://www.youtube.com/watch?v=smJsqNJlwJM&list=PLSHNk_yA5fNgU8suEO97pQlVFvtvHpWNG",
+    description: {
+      pt: "Playlist de lógica de programação usando JavaScript",
+      en: "Programming logic playlist using JavaScript",
+      es: "Playlist de lógica de programación usando JavaScript",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["javascript", "logic", "youtube", "pt-br"],
+  },
+  {
+    id: "frontend-vidafullstack",
+    name: "Front-End Completo — Vida FullStack",
+    url: "https://www.youtube.com/watch?v=j_lSgjAODos&list=PLMy95_4XE08MRsQvaSQnHzyooNevGTNtS",
+    description: {
+      pt: "Curso completo de front-end do zero ao avançado",
+      en: "Complete front-end course from zero to advanced",
+      es: "Curso completo de front-end desde cero hasta avanzado",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["html", "css", "js", "youtube", "pt-br"],
+  },
+  {
+    id: "html-css-battisti",
+    name: "HTML5 e CSS3 — Matheus Battisti",
+    url: "https://www.youtube.com/watch?v=3a9Qd026DOI&list=PLnDvRpP8Bnez2LJGshXKtid2f-aUkFOqM",
+    description: {
+      pt: "Curso de HTML5 e CSS3 com projetos práticos",
+      en: "HTML5 and CSS3 course with hands-on projects",
+      es: "Curso de HTML5 y CSS3 con proyectos prácticos",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["html", "css", "youtube", "pt-br"],
+  },
+  {
+    id: "html-css-cursoemvideo",
+    name: "HTML e CSS — Curso em Vídeo",
+    url: "https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n",
+    description: {
+      pt: "Curso completo de HTML e CSS pelo Gustavo Guanabara",
+      en: "Complete HTML and CSS course by Gustavo Guanabara",
+      es: "Curso completo de HTML y CSS por Gustavo Guanabara",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["html", "css", "youtube", "pt-br"],
+  },
+  {
+    id: "html-progweb",
+    name: "HTML Completo — Programação Web",
+    url: "https://www.youtube.com/watch?v=sj0p9O85AIg&list=PL2Fdisxwzt_cajoGVWTx44wM6Ht09QJ3A",
+    description: {
+      pt: "Playlist completa de HTML pelo canal Programação Web",
+      en: "Complete HTML playlist by Programação Web channel",
+      es: "Playlist completa de HTML por el canal Programação Web",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["html", "youtube", "pt-br"],
+  },
+  {
+    id: "js-battisti",
+    name: "JavaScript — Matheus Battisti",
+    url: "https://www.youtube.com/watch?v=TkD0QMyBa28&list=PLnDvRpP8BneysKU8KivhnrVaKpILD3gZ6",
+    description: {
+      pt: "Curso completo de JavaScript com projetos práticos",
+      en: "Complete JavaScript course with practical projects",
+      es: "Curso completo de JavaScript con proyectos prácticos",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["javascript", "youtube", "pt-br"],
+  },
+  {
+    id: "js-devaprender",
+    name: "JavaScript Completo — DevAprender",
+    url: "https://www.youtube.com/watch?v=i6Oi-YtXnAU",
+    description: {
+      pt: "Curso completo de JavaScript em um único vídeo",
+      en: "Complete JavaScript course in a single video",
+      es: "Curso completo de JavaScript en un solo video",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["javascript", "youtube", "pt-br"],
+  },
+  {
+    id: "js-moderno-willian",
+    name: "JS Moderno — Willian Justen",
+    url: "https://www.youtube.com/watch?v=RtfBx90R070&list=PLlAbYrWSYTiPQ1BE8klOtheBC0mtL3hEi",
+    description: {
+      pt: "JavaScript moderno com ES6+, mais avançado",
+      en: "Modern JavaScript with ES6+, more advanced",
+      es: "JavaScript moderno con ES6+, más avanzado",
+    },
+    category: "courses",
+    level: "intermediario",
+    tags: ["javascript", "es6", "youtube", "pt-br"],
+  },
+  {
+    id: "figma-cursae",
+    name: "Figma do Zero — Cursae",
+    url: "https://www.cursae.com.br/cursos/figma-criando-interfaces-do-zero-ate-o-prototipo-final",
+    description: {
+      pt: "Curso gratuito de Figma: do zero ao protótipo final",
+      en: "Free Figma course: from scratch to final prototype",
+      es: "Curso gratuito de Figma: desde cero hasta el prototipo final",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["figma", "design", "ui", "pt-br"],
+  },
+  {
+    id: "css-alura",
+    name: "Imersão CSS — Alura",
+    url: "https://www.alura.com.br/imersao-css/",
+    description: {
+      pt: "Imersão gratuita de CSS pela Alura para criar sua página pessoal",
+      en: "Free CSS immersion by Alura to create your personal page",
+      es: "Inmersión gratuita de CSS por Alura para crear tu página personal",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["css", "alura", "pt-br"],
+  },
+
+  /* ═══════════════════════════════════════
+     PLATAFORMAS DE ESTUDO
+     ═══════════════════════════════════════ */
+  {
+    id: "sololearn",
+    name: "SoloLearn",
+    url: "https://www.sololearn.com/",
+    description: {
+      pt: "Plataforma gamificada para aprender a programar no celular",
+      en: "Gamified platform to learn coding on your phone",
+      es: "Plataforma gamificada para aprender a programar en el celular",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["mobile", "gamified", "free"],
+  },
+  {
+    id: "mimo",
+    name: "Mimo",
+    url: "https://mimo.org/",
+    description: {
+      pt: "App de aprendizado de programação com lições curtas e práticas",
+      en: "Coding learning app with short, hands-on lessons",
+      es: "App de aprendizaje de programación con lecciones cortas y prácticas",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["mobile", "app", "gamified"],
+  },
+  {
+    id: "fgv",
+    name: "FGV Online",
+    url: "https://educacao-executiva.fgv.br/cursos/gratuitos",
+    description: {
+      pt: "Cursos gratuitos da Fundação Getúlio Vargas com certificado",
+      en: "Free courses from FGV with certificate",
+      es: "Cursos gratuitos de la Fundación Getúlio Vargas con certificado",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["certificate", "free", "pt-br"],
+  },
+  {
+    id: "fundacao-bradesco",
+    name: "Fundação Bradesco",
+    url: "https://www.ev.org.br/",
+    description: {
+      pt: "Escola virtual com cursos gratuitos de tecnologia e certificado",
+      en: "Virtual school with free technology courses and certificates",
+      es: "Escuela virtual con cursos gratuitos de tecnología y certificado",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["certificate", "free", "pt-br"],
+  },
+  {
+    id: "dio",
+    name: "DIO",
+    url: "https://www.dio.me/",
+    description: {
+      pt: "Plataforma de educação tech com bootcamps e comunidade ativa",
+      en: "Tech education platform with bootcamps and active community",
+      es: "Plataforma de educación tech con bootcamps y comunidad activa",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["bootcamp", "community", "pt-br"],
+  },
+  {
+    id: "w3schools",
+    name: "W3Schools",
+    url: "https://www.w3schools.com/",
+    description: {
+      pt: "Tutoriais e referências de HTML, CSS, JS e muito mais",
+      en: "Tutorials and references for HTML, CSS, JS and more",
+      es: "Tutoriales y referencias de HTML, CSS, JS y más",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["reference", "tutorial", "html", "css", "js"],
+  },
+  {
+    id: "javascript-info",
+    name: "JavaScript.info",
+    url: "https://javascript.info/",
+    description: {
+      pt: "Tutorial completo e moderno de JavaScript, do básico ao avançado",
+      en: "Complete modern JavaScript tutorial, from basics to advanced",
+      es: "Tutorial completo y moderno de JavaScript, de básico a avanzado",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["javascript", "tutorial", "modern"],
+  },
+  {
+    id: "origamid-flexbox",
+    name: "Origamid — Guia Flexbox",
+    url: "https://www.origamid.com/projetos/flexbox-guia-completo/",
+    description: {
+      pt: "Guia completo e visual de CSS Flexbox em português",
+      en: "Complete visual CSS Flexbox guide in Portuguese",
+      es: "Guía completa y visual de CSS Flexbox en portugués",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["css", "flexbox", "guide", "pt-br"],
+  },
+  {
+    id: "aprenda-mais-mec",
+    name: "Aprenda Mais (MEC)",
+    url: "https://aprendamais.mec.gov.br/",
+    description: {
+      pt: "Plataforma oficial do MEC com cursos gratuitos e certificado",
+      en: "Official MEC platform with free courses and certificates",
+      es: "Plataforma oficial del MEC con cursos gratuitos y certificado",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["certificate", "free", "government", "pt-br"],
+  },
+  {
+    id: "oracle-one",
+    name: "Oracle ONE",
+    url: "https://www.oracle.com/br/education/oracle-next-education/",
+    description: {
+      pt: "Programa 100% gratuito com 700h+ de conteúdo e certificado Oracle",
+      en: "100% free program with 700h+ content and Oracle certificate",
+      es: "Programa 100% gratuito con 700h+ de contenido y certificado Oracle",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["certificate", "free", "oracle", "java", "pt-br"],
+  },
+  {
+    id: "rocketseat-discover",
+    name: "Rocketseat Discover",
+    url: "https://www.rocketseat.com.br/discover",
+    description: {
+      pt: "Trilha gratuita da Rocketseat para começar na programação",
+      en: "Free Rocketseat track to get started in coding",
+      es: "Ruta gratuita de Rocketseat para comenzar en programación",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["free", "react", "node", "pt-br"],
+  },
+  {
+    id: "odin-project",
+    name: "The Odin Project",
+    url: "https://www.theodinproject.com/",
+    description: {
+      pt: "Currículo completo e gratuito de desenvolvimento web full stack",
+      en: "Complete free full stack web development curriculum",
+      es: "Currículo completo y gratuito de desarrollo web full stack",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["free", "fullstack", "html", "css", "js", "ruby"],
+  },
+  {
+    id: "freecodecamp",
+    name: "freeCodeCamp",
+    url: "https://www.freecodecamp.org/",
+    description: {
+      pt: "Currículo completo com certificações gratuitas reconhecidas mundialmente",
+      en: "Complete curriculum with globally recognized free certifications",
+      es: "Currículo completo con certificaciones gratuitas reconocidas mundialmente",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["certificate", "free", "html", "css", "js", "python"],
+  },
+  {
+    id: "microsoft-learn",
+    name: "Microsoft Learn",
+    url: "https://learn.microsoft.com/pt-br/training/",
+    description: {
+      pt: "Cursos gratuitos da Microsoft com certificados e trilhas guiadas",
+      en: "Free Microsoft courses with certificates and guided paths",
+      es: "Cursos gratuitos de Microsoft con certificados y rutas guiadas",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["certificate", "free", "microsoft", "azure", "pt-br"],
+  },
+  {
+    id: "roadmap-sh",
+    name: "Roadmap.sh",
+    url: "https://roadmap.sh/frontend",
+    description: {
+      pt: "Roadmaps interativos de carreira para desenvolvedores",
+      en: "Interactive career roadmaps for developers",
+      es: "Roadmaps interactivos de carrera para desarrolladores",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["roadmap", "career", "guide"],
+  },
+
+  /* ═══════════════════════════════════════
+     FERRAMENTAS DE DEV
+     ═══════════════════════════════════════ */
+  {
+    id: "stackblitz",
+    name: "StackBlitz",
+    url: "https://stackblitz.com/",
+    description: {
+      pt: "IDE online completa com suporte a frameworks modernos",
+      en: "Full online IDE with modern framework support",
+      es: "IDE en línea completa con soporte para frameworks modernos",
+    },
+    category: "tools",
+    level: "iniciante",
+    tags: ["ide", "online", "react", "vue"],
+  },
+  {
+    id: "codepen",
+    name: "CodePen",
+    url: "https://codepen.io/",
+    description: {
+      pt: "Playground online para HTML, CSS e JS com compartilhamento",
+      en: "Online playground for HTML, CSS and JS with sharing",
+      es: "Playground en línea para HTML, CSS y JS con opción de compartir",
+    },
+    category: "tools",
+    level: "iniciante",
+    tags: ["playground", "html", "css", "js"],
+  },
+  {
+    id: "caniuse",
+    name: "Can I Use",
+    url: "https://caniuse.com/",
+    description: {
+      pt: "Verifica compatibilidade de recursos CSS/JS entre navegadores",
+      en: "Check CSS/JS feature compatibility across browsers",
+      es: "Verifica compatibilidad de recursos CSS/JS entre navegadores",
+    },
+    category: "tools",
+    level: "iniciante",
+    tags: ["compatibility", "browser", "css", "js"],
+  },
+  {
+    id: "w3c-validator",
+    name: "W3C Validator",
+    url: "https://validator.w3.org/",
+    description: {
+      pt: "Validador oficial de HTML para verificar erros de marcação",
+      en: "Official HTML validator to check markup errors",
+      es: "Validador oficial de HTML para verificar errores de marcación",
+    },
+    category: "tools",
+    level: "iniciante",
+    tags: ["html", "validation", "w3c"],
+  },
+  {
+    id: "carbon",
+    name: "Carbon",
+    url: "https://carbon.now.sh/",
+    description: {
+      pt: "Cria capturas de tela bonitas do seu código para compartilhar",
+      en: "Create beautiful code screenshots to share",
+      es: "Crea capturas de pantalla bonitas de tu código para compartir",
+    },
+    category: "tools",
+    level: "iniciante",
+    tags: ["screenshot", "code", "sharing"],
+  },
+  {
+    id: "regex101",
+    name: "Regex101",
+    url: "https://regex101.com/",
+    description: {
+      pt: "Testador e explicador de expressões regulares em tempo real",
+      en: "Real-time regex tester and explainer",
+      es: "Probador y explicador de expresiones regulares en tiempo real",
+    },
+    category: "tools",
+    level: "intermediario",
+    tags: ["regex", "testing"],
+  },
+  {
+    id: "keycode-info",
+    name: "Keycode.info",
+    url: "https://keycode.info/",
+    description: {
+      pt: "Descubra keycodes de teclas em JavaScript pressionando qualquer tecla",
+      en: "Discover JavaScript keycodes by pressing any key",
+      es: "Descubre keycodes de teclas en JavaScript presionando cualquier tecla",
+    },
+    category: "tools",
+    level: "iniciante",
+    tags: ["javascript", "keycode", "debug"],
+  },
+  {
+    id: "hidden-tools",
+    name: "Hidden Tools",
+    url: "https://hiddentools.dev/",
+    description: {
+      pt: "Coleção curada de ferramentas úteis e pouco conhecidas para devs",
+      en: "Curated collection of useful and lesser-known dev tools",
+      es: "Colección curada de herramientas útiles y poco conocidas para devs",
+    },
+    category: "tools",
+    level: "iniciante",
+    tags: ["collection", "tools", "curated"],
+  },
+  {
+    id: "relume",
+    name: "Relume",
+    url: "https://www.relume.io/",
+    description: {
+      pt: "Biblioteca de componentes e sitemap builder com IA para wireframes rápidos",
+      en: "Component library and AI sitemap builder for rapid wireframing",
+      es: "Biblioteca de componentes y sitemap builder con IA para wireframes rápidos",
+    },
+    category: "tools",
+    level: "intermediario",
+    tags: ["wireframe", "ai", "sitemap", "components", "design"],
+  },
+  {
+    id: "sanity",
+    name: "Sanity.io",
+    url: "https://www.sanity.io/",
+    description: {
+      pt: "CMS headless em tempo real com studio customizável e API flexível",
+      en: "Real-time headless CMS with customizable studio and flexible API",
+      es: "CMS headless en tiempo real con estudio personalizable y API flexible",
+    },
+    category: "tools",
+    level: "intermediario",
+    tags: ["cms", "headless", "api", "content", "studio"],
+  },
+  {
+    id: "directus",
+    name: "Directus",
+    url: "https://directus.io/",
+    description: {
+      pt: "Plataforma open-source de dados com dashboard visual e API REST/GraphQL",
+      en: "Open-source data platform with visual dashboard and REST/GraphQL API",
+      es: "Plataforma open-source de datos con dashboard visual y API REST/GraphQL",
+    },
+    category: "tools",
+    level: "intermediario",
+    tags: ["cms", "headless", "api", "database", "open-source"],
+  },
+  {
+    id: "strapi",
+    name: "Strapi",
+    url: "https://strapi.io/",
+    description: {
+      pt: "CMS headless open-source com painel admin e API customizável em Node.js",
+      en: "Open-source headless CMS with admin panel and customizable Node.js API",
+      es: "CMS headless open-source con panel admin y API personalizable en Node.js",
+    },
+    category: "tools",
+    level: "intermediario",
+    tags: ["cms", "headless", "api", "nodejs", "open-source"],
+  },
+
+  /* ═══════════════════════════════════════
+     DESIGN & CORES
+     ═══════════════════════════════════════ */
+  {
+    id: "coolors",
+    name: "Coolors",
+    url: "https://coolors.co/",
+    description: {
+      pt: "Gerador de paletas de cores com exportação em vários formatos",
+      en: "Color palette generator with multiple export formats",
+      es: "Generador de paletas de colores con exportación en varios formatos",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["colors", "palette", "generator"],
+  },
+  {
+    id: "unsplash",
+    name: "Unsplash",
+    url: "https://unsplash.com/",
+    description: {
+      pt: "Banco de fotos gratuitas em alta resolução para projetos",
+      en: "Free high-resolution stock photos for projects",
+      es: "Banco de fotos gratuitas en alta resolución para proyectos",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["photos", "free", "stock"],
+  },
+  {
+    id: "undraw",
+    name: "unDraw",
+    url: "https://undraw.co/",
+    description: {
+      pt: "Ilustrações SVG gratuitas e customizáveis por cor",
+      en: "Free customizable SVG illustrations",
+      es: "Ilustraciones SVG gratuitas y personalizables por color",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["illustrations", "svg", "free"],
+  },
+  {
+    id: "manypixels",
+    name: "ManyPixels",
+    url: "https://www.manypixels.co/gallery",
+    description: {
+      pt: "Galeria de ilustrações gratuitas em SVG e PNG",
+      en: "Free illustration gallery in SVG and PNG",
+      es: "Galería de ilustraciones gratuitas en SVG y PNG",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["illustrations", "svg", "png", "free"],
+  },
+  {
+    id: "dribbble",
+    name: "Dribbble",
+    url: "https://dribbble.com/",
+    description: {
+      pt: "Plataforma de inspiração de design com trabalhos profissionais",
+      en: "Design inspiration platform with professional work",
+      es: "Plataforma de inspiración de diseño con trabajos profesionales",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["inspiration", "design", "portfolio"],
+  },
+  {
+    id: "behance",
+    name: "Behance",
+    url: "https://www.behance.net/",
+    description: {
+      pt: "Portfólios de design e projetos criativos para inspiração",
+      en: "Design portfolios and creative projects for inspiration",
+      es: "Portafolios de diseño y proyectos creativos para inspiración",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["inspiration", "portfolio", "creative"],
+  },
+  {
+    id: "lottiefiles",
+    name: "LottieFiles",
+    url: "https://lottiefiles.com/",
+    description: {
+      pt: "Animações leves em formato Lottie, prontas para usar na web",
+      en: "Lightweight Lottie animations, ready for the web",
+      es: "Animaciones ligeras en formato Lottie, listas para usar en la web",
+    },
+    category: "design",
+    level: "intermediario",
+    tags: ["animation", "lottie", "free"],
+  },
+  {
+    id: "loading-io",
+    name: "Loading.io",
+    url: "https://loading.io/",
+    description: {
+      pt: "Gerador de animações de loading customizáveis (CSS/SVG/GIF)",
+      en: "Customizable loading animation generator (CSS/SVG/GIF)",
+      es: "Generador de animaciones de carga personalizables (CSS/SVG/GIF)",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["loading", "animation", "generator"],
+  },
+  {
+    id: "getwaves",
+    name: "Get Waves",
+    url: "https://getwaves.io/",
+    description: {
+      pt: "Gerador de ondas SVG para seções de página",
+      en: "SVG wave generator for page sections",
+      es: "Generador de olas SVG para secciones de página",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["svg", "waves", "generator"],
+  },
+  {
+    id: "clippy",
+    name: "Clippy",
+    url: "https://bennettfeely.com/clippy/",
+    description: {
+      pt: "Gerador visual de CSS clip-path para recortes de elementos",
+      en: "Visual CSS clip-path generator for element clipping",
+      es: "Generador visual de CSS clip-path para recortes de elementos",
+    },
+    category: "design",
+    level: "intermediario",
+    tags: ["css", "clip-path", "generator"],
+  },
+  {
+    id: "svg-shape-generator",
+    name: "SVG Shape Generator",
+    url: "https://www.softr.io/tools/svg-shape-generator",
+    description: {
+      pt: "Gerador de formas SVG orgânicas e abstratas",
+      en: "Organic and abstract SVG shape generator",
+      es: "Generador de formas SVG orgánicas y abstractas",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["svg", "shapes", "generator"],
+  },
+  {
+    id: "octicons",
+    name: "Octicons",
+    url: "https://primer.style/octicons/",
+    description: {
+      pt: "Biblioteca de ícones open source do GitHub",
+      en: "GitHub's open source icon library",
+      es: "Biblioteca de iconos open source de GitHub",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["icons", "github", "open-source"],
+  },
+  {
+    id: "autodraw",
+    name: "AutoDraw",
+    url: "https://www.autodraw.com/",
+    description: {
+      pt: "Ferramenta de desenho com IA do Google que sugere formas",
+      en: "Google's AI drawing tool that suggests shapes",
+      es: "Herramienta de dibujo con IA de Google que sugiere formas",
+    },
+    category: "design",
+    level: "iniciante",
+    tags: ["ai", "drawing", "google"],
+  },
+
+  /* ═══════════════════════════════════════
+     BIBLIOTECAS DE COMPONENTES
+     ═══════════════════════════════════════ */
+  {
+    id: "21st-dev",
+    name: "21st.dev",
+    url: "https://21st.dev/",
+    description: {
+      pt: "Componentes de UI modernos com IA, prontos para copiar e usar",
+      en: "Modern AI-powered UI components, ready to copy and use",
+      es: "Componentes de UI modernos con IA, listos para copiar y usar",
+    },
+    category: "components",
+    level: "intermediario",
+    tags: ["ui", "ai", "components", "tailwind"],
+  },
+  {
+    id: "aceternity-ui",
+    name: "Aceternity UI",
+    url: "https://ui.aceternity.com/components",
+    description: {
+      pt: "Componentes animados com Tailwind CSS e Framer Motion",
+      en: "Animated components with Tailwind CSS and Framer Motion",
+      es: "Componentes animados con Tailwind CSS y Framer Motion",
+    },
+    category: "components",
+    level: "intermediario",
+    tags: ["tailwind", "framer-motion", "animated"],
+  },
+  {
+    id: "magic-ui",
+    name: "Magic UI",
+    url: "https://magicui.design/",
+    description: {
+      pt: "Componentes animados para landing pages e interfaces modernas",
+      en: "Animated components for landing pages and modern interfaces",
+      es: "Componentes animados para landing pages e interfaces modernas",
+    },
+    category: "components",
+    level: "intermediario",
+    tags: ["tailwind", "animation", "landing-page"],
+  },
+  {
+    id: "animate-ui",
+    name: "Animate UI",
+    url: "https://animate-ui.com/",
+    description: {
+      pt: "Biblioteca de componentes com animações elegantes",
+      en: "Component library with elegant animations",
+      es: "Biblioteca de componentes con animaciones elegantes",
+    },
+    category: "components",
+    level: "intermediario",
+    tags: ["animation", "components", "react"],
+  },
+  {
+    id: "inspira-ui",
+    name: "Inspira UI",
+    url: "https://inspira-ui.com/",
+    description: {
+      pt: "Componentes de UI inspirados em designs modernos (Vue)",
+      en: "UI components inspired by modern designs (Vue)",
+      es: "Componentes de UI inspirados en diseños modernos (Vue)",
+    },
+    category: "components",
+    level: "intermediario",
+    tags: ["vue", "components", "design"],
+  },
+  {
+    id: "kibo-ui",
+    name: "Kibo UI",
+    url: "https://www.kibo-ui.com/",
+    description: {
+      pt: "Biblioteca de componentes de UI minimalistas",
+      en: "Minimalist UI component library",
+      es: "Biblioteca de componentes de UI minimalistas",
+    },
+    category: "components",
+    level: "intermediario",
+    tags: ["minimal", "components", "react"],
+  },
+  {
+    id: "pace-ui",
+    name: "Pace UI",
+    url: "https://ui.paceui.com/",
+    description: {
+      pt: "Componentes de UI com foco em performance",
+      en: "UI components focused on performance",
+      es: "Componentes de UI con enfoque en rendimiento",
+    },
+    category: "components",
+    level: "intermediario",
+    tags: ["performance", "components", "react"],
+  },
+  {
+    id: "langui",
+    name: "LangUI",
+    url: "https://www.langui.dev/",
+    description: {
+      pt: "Componentes prontos para interfaces de apps com IA/LLM",
+      en: "Ready-made components for AI/LLM app interfaces",
+      es: "Componentes listos para interfaces de apps con IA/LLM",
+    },
+    category: "components",
+    level: "intermediario",
+    tags: ["ai", "llm", "components", "tailwind"],
+  },
+
+  /* ═══════════════════════════════════════
+     REFERÊNCIAS & DOCS
+     ═══════════════════════════════════════ */
+  {
+    id: "restfulapi",
+    name: "RESTful API Guide",
+    url: "https://restfulapi.net/",
+    description: {
+      pt: "Guia completo sobre conceitos e boas práticas de APIs REST",
+      en: "Complete guide on REST API concepts and best practices",
+      es: "Guía completa sobre conceptos y buenas prácticas de APIs REST",
+    },
+    category: "references",
+    level: "intermediario",
+    tags: ["api", "rest", "guide"],
+  },
+  {
+    id: "defensive-css",
+    name: "Defensive CSS",
+    url: "https://defensivecss.dev/",
+    description: {
+      pt: "Dicas práticas de CSS defensivo para evitar bugs visuais",
+      en: "Practical defensive CSS tips to avoid visual bugs",
+      es: "Consejos prácticos de CSS defensivo para evitar bugs visuales",
+    },
+    category: "references",
+    level: "intermediario",
+    tags: ["css", "defensive", "best-practices"],
+  },
+  {
+    id: "dev-tools-article",
+    name: "21 Tools for Devs",
+    url: "https://dev.to/taipy/21-tools-to-take-your-dev-skills-to-the-moon-53mf",
+    description: {
+      pt: "Artigo curado com 21 ferramentas essenciais para devs",
+      en: "Curated article with 21 essential tools for devs",
+      es: "Artículo curado con 21 herramientas esenciales para devs",
+    },
+    category: "references",
+    level: "iniciante",
+    tags: ["tools", "article", "curated"],
+  },
+  {
+    id: "wireframe-cc",
+    name: "Wireframe.cc",
+    url: "https://wireframe.cc/",
+    description: {
+      pt: "Ferramenta minimalista para criar wireframes rapidamente",
+      en: "Minimalist tool to create wireframes quickly",
+      es: "Herramienta minimalista para crear wireframes rápidamente",
+    },
+    category: "references",
+    level: "iniciante",
+    tags: ["wireframe", "design", "prototype"],
+  },
+];

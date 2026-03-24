@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView, useMotionValue, useSpring, motion } from "framer-motion";
+import { useInView, useMotionValue, useSpring, m } from "framer-motion";
 
 interface AnimatedCounterProps {
   value: string;
@@ -71,7 +71,7 @@ function TextReveal({
   const isInView = useInView(ref, { once: true });
 
   return (
-    <motion.span
+    <m.span
       ref={ref}
       className={className}
       initial={{ opacity: 0, y: 12 }}
@@ -83,7 +83,7 @@ function TextReveal({
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       {text}
-    </motion.span>
+    </m.span>
   );
 }
 

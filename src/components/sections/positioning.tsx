@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { TechMarqueeTop, TechMarqueeBottom } from "@/components/ui/tech-marquee";
 
@@ -40,7 +40,7 @@ export function Positioning() {
           className="font-display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight tracking-tight"
         >
           {words.map((word, i) => (
-            <motion.span
+            <m.span
               key={i}
               className="inline-block"
               initial={{ opacity: 0, y: 16 }}
@@ -57,7 +57,7 @@ export function Positioning() {
             >
               {word}
               {i < words.length - 1 ? "\u00A0" : ""}
-            </motion.span>
+            </m.span>
           ))}
         </h2>
 
