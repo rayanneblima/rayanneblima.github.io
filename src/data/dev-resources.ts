@@ -777,6 +777,32 @@ export const resources: DevResource[] = [
     level: "intermediario",
     tags: ["cms", "headless", "api", "nodejs", "open-source"],
   },
+  {
+    id: "datacamp",
+    name: "DataCamp",
+    url: "https://www.datacamp.com/",
+    description: {
+      pt: "Plataforma interativa para aprender data science, Python, R, SQL e IA com exercícios práticos",
+      en: "Interactive platform to learn data science, Python, R, SQL and AI with hands-on exercises",
+      es: "Plataforma interactiva para aprender data science, Python, R, SQL e IA con ejercicios prácticos",
+    },
+    category: "platforms",
+    level: "iniciante",
+    tags: ["data-science", "python", "sql", "ai", "machine-learning", "interactive"],
+  },
+  {
+    id: "coursera",
+    name: "Coursera",
+    url: "https://www.coursera.org/",
+    description: {
+      pt: "Cursos e certificados de universidades como Stanford, Google e IBM — muitos gratuitos para assistir",
+      en: "Courses and certificates from universities like Stanford, Google and IBM — many free to audit",
+      es: "Cursos y certificados de universidades como Stanford, Google e IBM — muchos gratuitos para auditar",
+    },
+    category: "courses",
+    level: "iniciante",
+    tags: ["courses", "certificates", "university", "google", "ibm", "free"],
+  },
 
   /* ═══════════════════════════════════════
      DESIGN & CORES

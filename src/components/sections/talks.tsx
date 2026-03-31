@@ -7,7 +7,7 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { TextScramble } from "@/components/ui/text-scramble";
 import { TiltCard } from "@/components/ui/tilt-card";
 
-const talkKeys = ["womenInTech"] as const;
+const talkKeys = ["womenInTech", "sosuba"] as const;
 
 /* Minimal SVG icons for talk types */
 const typeIcons: Record<string, React.ReactNode> = {
