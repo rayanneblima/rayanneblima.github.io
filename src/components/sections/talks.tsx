@@ -139,7 +139,7 @@ export function Talks() {
               <ScrollReveal
                 key={key}
                 delay={0.08 * i}
-                className={talkKeys.length === 1 || i === 0 || i === talkKeys.length - 1 ? "md:col-span-2" : ""}
+                className={talkKeys.length % 2 !== 0 && i === talkKeys.length - 1 ? "md:col-span-2" : ""}
               >
                 <TiltCard
                   className="group relative h-full"
