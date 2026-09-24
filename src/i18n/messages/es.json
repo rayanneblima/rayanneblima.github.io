@@ -119,6 +119,37 @@
           "p3": "Servicios"
         }
       },
+      "useimob": {
+        "name": "useimob",
+        "role": "Fundadora & Full Stack",
+        "year": "2026",
+        "context": "SaaS · Escaparate y panel para inmobiliarias",
+        "challenge": "Las inmobiliarias pequeñas y los corredores venden por Instagram y no tienen catálogo propio. useimob entrega el escaparate en el dominio del cliente, el panel de inmuebles y el lead llegando por WhatsApp — multi-tenant, con aislamiento por cliente en la base de datos y renderizado en el servidor en el borde de Cloudflare.",
+        "metrics": {
+          "m1": {
+            "value": "95",
+            "label": "Lighthouse móvil"
+          },
+          "m2": {
+            "value": "100",
+            "label": "accesibilidad"
+          },
+          "m3": {
+            "value": "SSR",
+            "label": "en el borde, en Workers"
+          },
+          "m4": {
+            "value": "RLS",
+            "label": "aislamiento por cliente"
+          }
+        },
+        "technologies": "React, React Router, TypeScript, Supabase, Cloudflare Workers, Tailwind CSS, Shadcn",
+        "previews": {
+          "p1": "Plataforma",
+          "p2": "Escaparate",
+          "p3": "Búsqueda"
+        }
+      },
       "pulsatrix": {
         "name": "Pulsatrix Apps",
         "role": "Fundadora & Full Stack",

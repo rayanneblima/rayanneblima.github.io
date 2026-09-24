@@ -119,6 +119,37 @@
           "p3": "Services"
         }
       },
+      "useimob": {
+        "name": "useimob",
+        "role": "Founder & Full Stack",
+        "year": "2026",
+        "context": "SaaS · Storefront and admin for real estate agencies",
+        "challenge": "Small agencies and independent brokers sell on Instagram and have no catalog of their own. useimob ships the storefront on the client's own domain, the property admin and leads arriving over WhatsApp — multi-tenant, with per-client isolation in the database and server rendering at the Cloudflare edge.",
+        "metrics": {
+          "m1": {
+            "value": "95",
+            "label": "mobile Lighthouse"
+          },
+          "m2": {
+            "value": "100",
+            "label": "accessibility"
+          },
+          "m3": {
+            "value": "SSR",
+            "label": "at the edge, on Workers"
+          },
+          "m4": {
+            "value": "RLS",
+            "label": "per-client isolation"
+          }
+        },
+        "technologies": "React, React Router, TypeScript, Supabase, Cloudflare Workers, Tailwind CSS, Shadcn",
+        "previews": {
+          "p1": "Platform",
+          "p2": "Storefront",
+          "p3": "Search"
+        }
+      },
       "pulsatrix": {
         "name": "Pulsatrix Apps",
         "role": "Founder & Full Stack",

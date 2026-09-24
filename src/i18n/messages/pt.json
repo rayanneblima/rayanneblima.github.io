@@ -119,6 +119,37 @@
           "p3": "Serviços"
         }
       },
+      "useimob": {
+        "name": "useimob",
+        "role": "Fundadora & Full Stack",
+        "year": "2026",
+        "context": "SaaS · Vitrine e painel para imobiliárias",
+        "challenge": "Corretor e imobiliária pequena vendem pelo Instagram e não têm catálogo próprio. O useimob entrega a vitrine no domínio do cliente, o painel de imóveis e o lead chegando pelo WhatsApp — multi-tenant, com isolamento por cliente no banco e renderização no servidor na borda da Cloudflare.",
+        "metrics": {
+          "m1": {
+            "value": "95",
+            "label": "Lighthouse mobile"
+          },
+          "m2": {
+            "value": "100",
+            "label": "acessibilidade"
+          },
+          "m3": {
+            "value": "SSR",
+            "label": "na borda, em Workers"
+          },
+          "m4": {
+            "value": "RLS",
+            "label": "isolamento por cliente"
+          }
+        },
+        "technologies": "React, React Router, TypeScript, Supabase, Cloudflare Workers, Tailwind CSS, Shadcn",
+        "previews": {
+          "p1": "Plataforma",
+          "p2": "Vitrine",
+          "p3": "Busca"
+        }
+      },
       "pulsatrix": {
         "name": "Pulsatrix Apps",
         "role": "Fundadora & Full Stack",

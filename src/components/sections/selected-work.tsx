@@ -8,12 +8,13 @@ import { TextScramble } from "@/components/ui/text-scramble";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { TechIcon } from "@/components/ui/tech-icon";
 
-const projectKeys = ["deskbee", "sosuba", "pulsatrix", "tray"] as const;
+const projectKeys = ["deskbee", "sosuba", "useimob", "pulsatrix", "tray"] as const;
 const allMetricKeys = ["m1", "m2", "m3", "m4"] as const;
 
 const companyUrls: Record<string, string> = {
   deskbee: "https://deskbee.co",
   sosuba: "https://sosuba.com.br",
+  useimob: "https://useimob.app",
   pulsatrix: "https://pulsatrixapps.com.br",
   tray: "https://tray.com.br",
 };
@@ -22,6 +23,7 @@ const companyUrls: Record<string, string> = {
 const projectAccents: Record<string, { from: string; via: string; to: string }> = {
   deskbee: { from: "#7C5DFA", via: "#5A3FD1", to: "#3D2A96" },
   sosuba: { from: "#E53E3E", via: "#C53030", to: "#9B2C2C" },
+  useimob: { from: "#B9F06B", via: "#6FAE5C", to: "#0D2A31" },
   pulsatrix: { from: "#B794F6", via: "#7C5DFA", to: "#5A3FD1" },
   tray: { from: "#5A3FD1", via: "#7C5DFA", to: "#B794F6" },
 };
@@ -46,6 +48,11 @@ function ParallaxPreview({ children }: { children: React.ReactNode }) {
 const projectPreviewSrcs: Record<string, string[]> = {
   deskbee: ["/images/preview-deskbee.png"],
   sosuba: ["/images/preview-sosuba.png"],
+  useimob: [
+    "/images/preview-useimob.png",
+    "/images/preview-useimob-storefront.png",
+    "/images/preview-useimob-search.png",
+  ],
   pulsatrix: ["/images/preview-pulsatrix.png"],
   tray: ["/images/preview-tray.png"],
 };
