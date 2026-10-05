@@ -44,19 +44,34 @@ function ParallaxPreview({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* Project preview image paths — labels come from i18n */
-const projectPreviewSrcs: Record<string, string[]> = {
-  deskbee: ["/images/preview-deskbee.png"],
-  sosuba: ["/images/preview-sosuba.png"],
+/* Project preview slides — labels come from i18n (previews.p1, p2, ...).
+   `url` overrides the address bar when the slide is not the company home. */
+type PreviewSlide = { src: string; url?: string };
+const projectPreviews: Record<string, PreviewSlide[]> = {
+  deskbee: [{ src: "/images/preview-deskbee.png" }],
+  sosuba: [{ src: "/images/preview-sosuba.png" }],
   useimob: [
-    "/images/preview-useimob.png",
-    "/images/preview-useimob-storefront.png",
-    "/images/preview-useimob-search.png",
+    { src: "/images/preview-useimob.png" },
+    {
+      src: "/images/preview-useimob-marcia-antonia.webp",
+      url: "https://marciaantoniaimoveis.net.br",
+    },
+    { src: "/images/preview-useimob-storefront.png" },
+    { src: "/images/preview-useimob-search.png" },
   ],
-  pulsatrix: ["/images/preview-pulsatrix.png"],
-  tray: ["/images/preview-tray.png"],
+  pulsatrix: [
+    { src: "/images/preview-pulsatrix-home.webp" },
+    { src: "/images/preview-pulsatrix-projects.webp", url: "https://pulsatrixapps.com.br/#projects" },
+    { src: "/images/preview-pulsatrix-services.webp", url: "https://pulsatrixapps.com.br/#services" },
+    { src: "/images/preview-pulsatrix-method.webp", url: "https://pulsatrixapps.com.br/#method" },
+    { src: "/images/preview-pulsatrix-blog.webp", url: "https://pulsatrixapps.com.br/blog" },
+    {
+      src: "/images/preview-pulsatrix-post.webp",
+      url: "https://pulsatrixapps.com.br/blog/historia-da-pulsatrix-apps",
+    },
+  ],
+  tray: [{ src: "/images/preview-tray.png" }],
 };
-const previewKeys = ["p1", "p2", "p3"] as const;
 
 const slideVariants = {
   enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
@@ -67,8 +82,10 @@ const slideVariants = {
 /* ─── Browser frame with carousel ─── */
 function ProjectPreview({ projectKey, labels }: { projectKey: string; labels: string[] }) {
   const accent = projectAccents[projectKey];
-  const srcs = projectPreviewSrcs[projectKey] ?? [];
-  const slides = srcs.map((src, i) => ({ src, label: labels[i] ?? "" }));
+  const slides = (projectPreviews[projectKey] ?? []).map((slide, i) => ({
+    ...slide,
+    label: labels[i] ?? "",
+  }));
   const [[current, direction], setCurrent] = useState([0, 0]);
 
   const paginate = useCallback(
@@ -81,12 +98,13 @@ function ProjectPreview({ projectKey, labels }: { projectKey: string; labels: st
     [slides.length],
   );
 
-  /* Auto-advance every 5s */
+  /* Auto-advance every 5s — restarts after any slide change, so a manual
+     click never gets skipped by a timer that was about to fire */
   useEffect(() => {
     if (slides.length <= 1) return;
-    const id = setInterval(() => paginate(1), 5000);
-    return () => clearInterval(id);
-  }, [slides.length, paginate]);
+    const id = setTimeout(() => paginate(1), 5000);
+    return () => clearTimeout(id);
+  }, [slides.length, paginate, current]);
 
   return (
     <div className="relative w-full max-w-lg mx-auto">
@@ -97,9 +115,9 @@ function ProjectPreview({ projectKey, labels }: { projectKey: string; labels: st
           <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
           <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
         </div>
-        <div className="flex-1 ml-3 rounded-md bg-bg/60 px-3 py-1">
-          <span className="font-mono text-xs text-text-tertiary tracking-wider">
-            {companyUrls[projectKey]?.replace("https://", "")}
+        <div className="flex-1 min-w-0 ml-3 rounded-md bg-bg/60 px-3 py-1">
+          <span className="block truncate font-mono text-xs text-text-tertiary tracking-wider">
+            {(slides[current]?.url ?? companyUrls[projectKey])?.replace("https://", "")}
           </span>
         </div>
       </div>
@@ -339,7 +357,9 @@ export function SelectedWork() {
                       <ParallaxPreview>
                         <ProjectPreview
                           projectKey={key}
-                          labels={previewKeys.map((pk) => t(`items.${key}.previews.${pk}`))}
+                          labels={(projectPreviews[key] ?? []).map((_, idx) =>
+                            t(`items.${key}.previews.p${idx + 1}`),
+                          )}
                         />
                       </ParallaxPreview>
                     </div>

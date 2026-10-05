@@ -146,8 +146,9 @@
         "technologies": "React, React Router, TypeScript, Supabase, Cloudflare Workers, Tailwind CSS, Shadcn",
         "previews": {
           "p1": "Plataforma",
-          "p2": "Vitrine",
-          "p3": "Busca"
+          "p2": "Cliente real",
+          "p3": "Vitrine",
+          "p4": "Busca"
         }
       },
       "pulsatrix": {
@@ -176,9 +177,12 @@
         },
         "technologies": "Vue.js, Next.js, Supabase, Cloudflare, GA4",
         "previews": {
-          "p1": "Website",
+          "p1": "Home",
           "p2": "Projetos",
-          "p3": "Processo"
+          "p3": "Serviços",
+          "p4": "Método",
+          "p5": "Blog",
+          "p6": "Artigo"
         }
       },
       "tray": {

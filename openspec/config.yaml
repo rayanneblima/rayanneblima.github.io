@@ -1,0 +1,10 @@
+schema: spec-driven
+
+context: |
+  Projeto: rayanneblima.github.io, portfólio pessoal da Rayanne B. Lima (https://rayanneblima.github.io/).
+  Next.js 16 com `output: "export"` (estático), next-intl (pt, en, es em src/i18n/messages/),
+  Tailwind CSS v4, Framer Motion. Publicado no GitHub Pages pelo workflow
+  .github/workflows/deploy.yml a cada push na main.
+
+  Conteúdo: nunca inventar número, depoimento, logo ou nome de cliente. Capturas de tela vêm do
+  site real no ar, não de mockup gerado.
