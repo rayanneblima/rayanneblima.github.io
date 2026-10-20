@@ -5,7 +5,7 @@ export const SITE_URL = "https://rayanneblima.github.io";
  * prefixo de URL `https://rayanneblima.github.io/`). Vazio = nenhuma tag é
  * emitida. Preencher com o token gerado no painel do GSC (tarefa 4.2).
  */
-export const GOOGLE_SITE_VERIFICATION = "";
+export const GOOGLE_SITE_VERIFICATION = "A_mLPJM1YOa4oNPr8LYKSfwS5qT8kiCRJ9P9xUW3Gp8";
 
 export const verification = GOOGLE_SITE_VERIFICATION
   ? { google: GOOGLE_SITE_VERIFICATION }

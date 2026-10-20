@@ -29,11 +29,16 @@
 
 ## 4. Search Console (D4)
 
-- [ ] 4.1 (Rayanne) Criar a propriedade de prefixo de URL `https://rayanneblima.github.io/` no GSC e copiar o token da
+- [x] 4.1 (Rayanne) Criar a propriedade de prefixo de URL `https://rayanneblima.github.io/` no GSC e copiar o token da
       meta tag
-- [ ] 4.2 `src/app/[locale]/layout.tsx` e `src/app/page.tsx`: `metadata.verification.google` com o token; publicar
+      - 20/10/2026: propriedade criada na conta pulsatrixapps@gmail.com e verificada na hora pelo **Google Analytics**
+        (o GA4 do portfólio é da mesma conta). A tag HTML entra como segundo método, para a verificação não depender
+        só do gtag.
+- [x] 4.2 `src/app/[locale]/layout.tsx` e `src/app/page.tsx`: `metadata.verification.google` com o token; publicar
       (ponto de código pronto: preencher `GOOGLE_SITE_VERIFICATION` em `src/lib/site.ts`; vazio não emite tag)
-- [ ] 4.3 (Rayanne) Clicar em "Verificar" no GSC e enviar `https://rayanneblima.github.io/sitemap.xml`
+- [x] 4.3 (Rayanne) Clicar em "Verificar" no GSC e enviar `https://rayanneblima.github.io/sitemap.xml`
+      - 20/10/2026: sitemap enviado (a URL responde 200, 3 URLs, `lastmod` do build). Logo após o envio o GSC mostrou
+        "Não foi possível buscar", status inicial comum; conferir no próximo rastreio.
 - [ ] 4.4 Pelo MCP do GSC: `list_sites` mostra a propriedade; `inspect_url` de `/pt/` (anotar o estado)
 
 ## 5. Fechamento
