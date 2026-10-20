@@ -43,5 +43,10 @@
 
 ## 5. Fechamento
 
-- [ ] 5.1 Rodar o MakeMeFindable de novo e registrar a segunda leitura em `.claude/docs/seo/makemefindable.md`
+- [x] 5.1 Rodar o MakeMeFindable de novo e registrar a segunda leitura em `.claude/docs/seo/makemefindable.md`
+      > 2ª rodada (20/10/2026): **78,05%**, igual à de 19/10, como previsto no design (a ferramenta já via a página
+      > renderizada). O ganho real está no `curl` da raiz (título, og:image, canônica) e no Search Console. Restam: SPF (é
+      > o domínio do GitHub), Image alt text com 1 (logo da tela de abertura, decorativo), Plaintext email (o e-mail de
+      > contato, aceito), Domain Age, HTML page size (232 KB, payload do Next), Inline CSS, Media query, Meta description e
+      > Modern media, avisos aceitos.
 - [ ] 5.2 Duas semanas depois: `search_analytics` do GSC (cliques, impressões, consultas) anotado no mesmo arquivo

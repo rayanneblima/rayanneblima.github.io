@@ -37,3 +37,7 @@ Pendente (tarefa 5.1).
 ## Search Console
 
 Pendente (tarefas 4.x e 5.2).
+
+## 2ª rodada (20/10/2026): 78,05%
+
+Igual à de 19/10. Detalhe na tarefa 5.1 de `openspec/changes/fix-root-and-crawlability/tasks.md`.
