@@ -13,6 +13,7 @@ import { LenisProvider } from "@/components/ui/lenis-provider";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { AnimatedFavicon } from "@/components/ui/animated-favicon";
 import { FramerProvider } from "@/components/shared/framer-provider";
+import { verification } from "@/lib/site";
 import "@/app/globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -85,6 +86,7 @@ export async function generateMetadata({
     authors: [{ name: "Rayanne Bertolace Lima", url: "https://rayanneblima.github.io" }],
     creator: "Rayanne Bertolace Lima",
     robots: { index: true, follow: true },
+    verification,
   };
 }
 

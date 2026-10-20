@@ -6,7 +6,8 @@ const BASE_URL = "https://rayanneblima.github.io";
 const locales = ["pt", "en", "es"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-03-12");
+  // Data do build: o deploy roda a cada push na main, então acompanha a última publicação.
+  const lastModified = new Date();
 
   return locales.map((locale) => ({
     url: `${BASE_URL}/${locale}/`,
